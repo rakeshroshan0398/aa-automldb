@@ -13,6 +13,7 @@
             </div>            
       </div>
   </section> -->
+  <form>
   <div class="sidebar">
     <!-- <div class="row"> -->
         <!-- <div class="col-md-3">
@@ -24,6 +25,7 @@
     <p class="aboutnav">About</p>
  </div>
  </div> -->
+
  <div class="card">
     <table class="table table-bordered table-striped cus-table aa-table table1" >
         <thead class="thead-inverse">
@@ -36,7 +38,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of repodata">
-                <td><input type="checkbox" id="vehicle2" name="checkbox" value="Car"></td>
+                <td><input type="checkbox" id="vehicle2" name="checkbox" value="Car" (change)="toggle(item)"></td>
                 <td>{{item.project_name}}</td>
                 <td>{{item.DatasetPath}}</td>
                 <td><select class="form-control selecttag" name="store" required>
@@ -55,3 +57,4 @@
  </div>
  <!-- </div> -->
 </div> 
+</form>

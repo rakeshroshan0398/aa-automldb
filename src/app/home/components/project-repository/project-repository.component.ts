@@ -7,14 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectRepositoryComponent implements OnInit {
 repodata =[
-  {"project_name":"Titanic","DatasetPath":"/titanic"},
-  {"project_name":"Credit card Defaultor","DatasetPath":"/titanic"},
-  {"project_name":"Prediction","DatasetPath":"/titanic"},
-  {"project_name":"Titanic","DatasetPath":"/titanic"}, 
+  {"id":1,"project_name":"Titanic","DatasetPath":"/titanic"},
+  {"id":1,"project_name":"Credit card Defaultor","DatasetPath":"/titanic"},
+  {"id":1,"project_name":"Prediction","DatasetPath":"/titanic"},
+  {"id":1,"project_name":"Titanic","DatasetPath":"/titanic"}, 
 ]
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  toggle(data){
+    console.log(data.id)
+    console.log(data.project_name)
+  }
 }

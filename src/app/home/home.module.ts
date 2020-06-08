@@ -9,13 +9,15 @@ import { HeaderComponent }   from './components/header/header.component';
 import { FooterComponent }   from './components/footer/footer.component';
 import { ChartModule } from 'angular-highcharts';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     HomeRoutingModule,
-    ChartModule
+    ChartModule,
+    FormsModule
   ],
   declarations: [
     HomeComponent,
