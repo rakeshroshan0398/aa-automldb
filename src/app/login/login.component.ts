@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     ) {
       sessionStorage.setItem('isLoggedin', 'true');
       sessionStorage.setItem('isFirstTimeLogin', 'true');
-      this.router.navigate(['/ins-counterfeit']);
+      this.router.navigate(['/project-repository']);
     } else {
       alert("Invalid username & password!");
     }

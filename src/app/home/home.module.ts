@@ -8,6 +8,7 @@ import { HomeComponent } from './home.component';
 import { HeaderComponent }   from './components/header/header.component';
 import { FooterComponent }   from './components/footer/footer.component';
 import { ChartModule } from 'angular-highcharts';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { ChartModule } from 'angular-highcharts';
   declarations: [
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SidebarComponent
   ],
   exports: [
     HomeComponent
