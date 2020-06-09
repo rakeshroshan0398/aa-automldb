@@ -9,14 +9,12 @@ import { AuthGuard, Globals } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmbedVideo } from 'ngx-embed-video';
-import { ChartModule } from 'angular-highcharts';
-import { HighchartsChartModule } from 'highcharts-angular';
+// import { ChartModule } from 'angular-highcharts';
+// import { HighchartsChartModule } from 'highcharts-angular';
 import { ApiService } from './shared';
-
-
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,9 +23,9 @@ import { ApiService } from './shared';
     FormsModule,
     ReactiveFormsModule,
     EmbedVideo.forRoot(),
-    ChartModule,
+    // ChartModule,
     CommonModule,
-    HighchartsChartModule
+    // HighchartsChartComponent
   ],
   exports: [
 

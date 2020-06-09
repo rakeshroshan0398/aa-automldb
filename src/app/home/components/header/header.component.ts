@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,13 +7,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  @Input() myinputMsg:string;
+  @Input() dataMsg:string;
+  datamessage = false; 
   constructor(
     public router: Router
     ) { }
 
   ngOnInit(): void {
-
+    console.log(this.myinputMsg);
+    console.log(this.dataMsg)
+    if(this.dataMsg){
+        this.datamessage = true;
+    }
   }
 
   navigateTo(path) {
