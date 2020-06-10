@@ -11,23 +11,26 @@ export class HeaderComponent implements OnInit {
   @Input() dataMsg:string;
   @Output() myOutput:EventEmitter<string>= new EventEmitter(); 
   outputMessage:string="I am child component." 
-  projectname:string="kjkjjj";
+  projectname:string="";
   datamessage = false; 
   constructor(
     public router: Router
     ) { }
 
   ngOnInit(): void {
+    
+  }
+  send(){
     console.log('input',this.myinputMsg);
-    console.log(this.myinputMsg);
-    this.outputMessage = this.myinputMsg;
-    console.log('output',this.outputMessage);
-    // this.projectname = this.myinputMsg;
-    this.myOutput.emit(this.outputMessage);
-    console.log(this.myOutput);
-    // if(this.dataMsg){
-    //     this.datamessage = true;
-    // }
+    this.projectname = this.myinputMsg;
+   console.log(this.projectname);
+   // this.outputMessage = this.myinputMsg;
+   console.log('output',this.projectname);
+   this.myOutput.emit(this.projectname);
+   console.log(this.myOutput);
+   // if(this.dataMsg){
+   //     this.datamessage = true;
+   // }
   }
   navigateTo(path) {
     this.router.navigate([path]);

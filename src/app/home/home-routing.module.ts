@@ -17,6 +17,8 @@ const routes: Routes = [
       { path: 'EDA-Multivariate', loadChildren: () => import('./components/eda/eda-multivariate/eda-multivariate.module').then(m => m.EDAMultivariateModule) },
       { path: 'EDA-Pandas-profile', loadChildren: () => import('./components/eda/eda-pandas-profile/eda-pandas-profile.module').then(m => m.EDAPandasProfileModule) },
       { path: 'Data-preprocessing', loadChildren: () => import('./components/data-preprocessing/data-preprocessing.module').then(m => m.DataPreprocessingModule) },
+      { path: 'Feature-Engineering', loadChildren: () => import('./components/feature-engineering/feature-engineering.module').then(m => m.FeatureEngineeringModule) },
+      { path: 'Predict', loadChildren: () => import('./components/predict/predict.module').then(m => m.PredictModule) },
       { path: 'intro', loadChildren: () => import('./components/intro/intro.module').then(m => m.IntroModule) }
     ]
   },
