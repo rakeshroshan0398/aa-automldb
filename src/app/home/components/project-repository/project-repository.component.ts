@@ -1,12 +1,14 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
+import { Component, OnInit, Output, EventEmitter,ViewChild,AfterViewInit } from '@angular/core';
+import {HeaderComponent} from '../../components/header/header.component';
 @Component({
   selector: 'app-project-repository',
   templateUrl: './project-repository.component.html',
   styleUrls: ['./project-repository.component.scss']
 })
 export class ProjectRepositoryComponent implements OnInit {
-  myInputMessage ="hi";
+  @ViewChild(HeaderComponent) child;
+
+  myInputMessage:string ="hi";
   projectname:string;
   header:boolean =false;
   datasetpath:string;  
@@ -20,6 +22,10 @@ export class ProjectRepositoryComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  ngAfterViewInit() {
+    this.projectname = this.child.outputMessage;
+    console.log(this.projectname);
+  }
   toggle(data){
     console.log(data.id)
     console.log(data.project_name);
@@ -29,4 +35,5 @@ export class ProjectRepositoryComponent implements OnInit {
     this.myInputMessage ="Titanic";
     this.header = true;
   }
+ 
 }

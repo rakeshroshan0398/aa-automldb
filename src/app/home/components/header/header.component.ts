@@ -1,6 +1,5 @@
 import { Component, OnInit,Input, Output,EventEmitter  } from '@angular/core';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,8 +9,9 @@ export class HeaderComponent implements OnInit {
   @Input() myinputMsg:string;
   @Input() dataMsg:string;
   @Output() myOutput:EventEmitter<string>= new EventEmitter(); 
+
   outputMessage:string="I am child component." 
-  projectname:string="";
+  projectname:string;
   datamessage = false; 
   constructor(
     public router: Router
