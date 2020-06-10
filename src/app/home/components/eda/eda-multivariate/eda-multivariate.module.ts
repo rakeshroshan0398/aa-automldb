@@ -5,8 +5,11 @@ import { EDAMultivariateRoutingModule } from './eda-multivariate-routing.module'
 import { EDAMultivariateComponent } from './eda-multivariate.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 
+import { EdaBubblechartComponent } from '../eda-bubblechart/eda-bubblechart.component';
+
+
 @NgModule({
-  declarations: [EDAMultivariateComponent],
+  declarations: [EDAMultivariateComponent, EdaBubblechartComponent],
   imports: [
     CommonModule,
     EDAMultivariateRoutingModule,
