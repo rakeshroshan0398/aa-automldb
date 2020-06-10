@@ -1,1 +1,90 @@
-<p>data-preprocessing works!</p>
+<div class="card">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Missing Value Summary</h2>
+            <table class="table table-bordered table-striped cus-table aa-table table1">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>Feature Name</th>
+                        <th>#Missing Values</th>
+                        <th># of Rows</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of featureData">
+                        <td>{{item.feature_name}}</td>
+                        <td>{{item.values}}</td>
+                        <td>{{item.rows}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h2 class="Visualization">Visualization</h2>
+            <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions1"
+                style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Outlier Detection</h2>
+            <table class="table table-bordered table-striped cus-table aa-table table1">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>Quantile</th>
+                        <th>Ticket Price</th>
+                        <th>Survival Property</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of quantileData">
+                        <td>{{item.Quantile}}</td>
+                        <td>{{item.ticket_price}}</td>
+                        <td>{{item.surival_property}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h2 class="Visualization">Visualization</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Missing Value Treatement</h2>
+            <input type="radio" id="male" name="default" value="default" class="radio"> 
+            <label for="default" class="radio">Drop Rows</label><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="radio" id="male" name="custom" value="custom" class="radio">
+                    <label for="custom" class="radio">Impute Values</label>
+            </div>
+            <div class="col-md-5">
+            <select class="form-control selecttag" name="store">
+                <option>Select Action</option>
+              </select><br>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2>Outlier Tratement</h2>
+            <input type="radio" id="male" name="default" value="default" class="radio">
+            <label for="default" class="radio">Drop Rows</label>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="radio" id="male" name="custom" value="custom" class="radio">
+                    <label for="custom" class="radio">Impute Values</label>
+            </div>
+            <div class="col-md-5">
+            <select class="form-control selecttag" name="store">
+                <option>Select Action</option>
+              </select><br>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -12,5 +12,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  GetChildData(data){  
+    console.log(data);  
+ } 
 
 }

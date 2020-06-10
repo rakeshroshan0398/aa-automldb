@@ -6,7 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./project-repository.component.scss']
 })
 export class ProjectRepositoryComponent implements OnInit {
-  myInputMessage:string;
+  myInputMessage ="hi";
   projectname:string;
   header:boolean =false;
   datasetpath:string;  
