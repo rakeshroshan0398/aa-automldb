@@ -19,6 +19,7 @@ const routes: Routes = [
       { path: 'Data-preprocessing', loadChildren: () => import('./components/data-preprocessing/data-preprocessing.module').then(m => m.DataPreprocessingModule) },
       { path: 'Feature-Engineering', loadChildren: () => import('./components/feature-engineering/feature-engineering.module').then(m => m.FeatureEngineeringModule) },
       { path: 'Predict', loadChildren: () => import('./components/predict/predict.module').then(m => m.PredictModule) },
+      { path: 'Predict-result', loadChildren: () => import('./components/predict-result/predict-result.module').then(m => m.PredictResultModule) },
       { path: 'intro', loadChildren: () => import('./components/intro/intro.module').then(m => m.IntroModule) }
     ]
   },
