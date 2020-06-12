@@ -14,7 +14,7 @@ export class EDAUnivarateComponent implements OnInit {
       type: 'column'
   },
   title: {
-      text: ''
+      text: 'Univariated Analysis'
   },
   subtitle: {
       text: ''

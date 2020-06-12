@@ -11,6 +11,10 @@ export class DeatilsComponent implements OnInit {
     {"name":"Type","ID":"numeric","age":"string","education":"string"},
     {"name":"Type","ID":"numeric","age":"string","education":"string"},
     {"name":"Type","ID":"numeric","age":"string","education":"string"},
+    {"name":"Type","ID":"numeric","age":"string","education":"string"},
+    {"name":"Type","ID":"numeric","age":"string","education":"string"},
+    {"name":"Type","ID":"numeric","age":"string","education":"string"},
+    {"name":"Type","ID":"numeric","age":"string","education":"string"},
   ]
   constructor() { }
 

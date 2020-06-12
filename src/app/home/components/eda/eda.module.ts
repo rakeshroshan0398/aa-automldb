@@ -6,6 +6,7 @@ import { EDAComponent } from './eda.component';
 import { ChartModule } from 'angular-highcharts';
 import { HighchartsChartModule } from 'highcharts-angular';
 
+
 @NgModule({
   declarations: [EDAComponent],
   imports: [
