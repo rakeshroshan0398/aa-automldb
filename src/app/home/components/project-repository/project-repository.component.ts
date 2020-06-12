@@ -14,6 +14,8 @@ export class ProjectRepositoryComponent implements OnInit {
   projectname: any;
   header: boolean = false;
   datasetpath: string;
+  searchText:string='';
+  project_name=[];
   repodata = [
     { "id": 1, "project_name": "Titanic", "DatasetPath": "/titanic", "label": 'a', "selected": false },
     { "id": 2, "project_name": "Credit card Defaultor", "DatasetPath": "/titanic", "label": 'a', "selected": false },
@@ -43,10 +45,13 @@ export class ProjectRepositoryComponent implements OnInit {
   copyForm: boolean = false;
   routerData: any;
   actionName:any;
+  repositorydata = [];
   constructor(public router: Router
     ) { }
 
   ngOnInit(): void {
+    this.repositorydata = this.repodata;
+    console.log(this.repositorydata);
   }
   ngAfterViewInit() {
     // this.projectname = this.child.outputMessage;
@@ -59,6 +64,15 @@ export class ProjectRepositoryComponent implements OnInit {
     console.log(data.project_name);
     this.projectname = data.project_name;
     console.log(this.projectname);
+    if(this.projectchecked == true){
+    this.project_name.push(this.projectname);
+    console.log(this.project_name);
+    }
+    // if(this.projectchecked === false){
+    //   console.log(this.projectchecked);
+    //   this.project_name.pop();
+    //   console.log(this.project_name);
+    // }
     this.datasetpath = data.DatasetPath;
     this.myInputMessage = "Titanic";
     this.header = true;
@@ -66,6 +80,7 @@ export class ProjectRepositoryComponent implements OnInit {
   }
   addproject() {
     this.form = true;
+    this.copyForm = false;
   }
   changeData(data) {
     console.log(data.target.value);
@@ -103,6 +118,7 @@ export class ProjectRepositoryComponent implements OnInit {
   }
   copy() {
     this.copyForm = true;
+    this.form = false;
   }
   copyclose() {
     this.copyForm = false;
@@ -114,5 +130,13 @@ export class ProjectRepositoryComponent implements OnInit {
     if (this.projectchecked == true && data) {
       this.routerData = data;
     }
+  }
+  searchValue(value: any): void {
+    let searchId: string = this.searchText.toLowerCase();
+    this.repositorydata = this.repodata.filter(function(val, ind, arr){
+      var status = (
+        ( val.project_name !== undefined && val.project_name !== null && val.project_name.toLowerCase().indexOf(searchId) !== -1 ));
+        return status;
+    });
   }
 }

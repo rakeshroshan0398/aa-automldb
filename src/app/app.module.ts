@@ -9,6 +9,7 @@ import { AuthGuard, Globals } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmbedVideo } from 'ngx-embed-video';
+
 // import { ChartModule } from 'angular-highcharts';
 // import { HighchartsChartModule } from 'highcharts-angular';
 import { ApiService } from './shared';
