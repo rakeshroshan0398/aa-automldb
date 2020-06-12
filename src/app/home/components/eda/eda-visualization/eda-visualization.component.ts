@@ -11,11 +11,11 @@ let chartHolder;
 
 
 @Component({
-  selector: 'app-eda-bubblechart',
-  templateUrl: './eda-bubblechart.component.html',
-  styleUrls: ['./eda-bubblechart.component.scss']
+  selector: 'app-eda-visualization',
+  templateUrl: './eda-visualization.component.html',
+  styleUrls: ['./eda-visualization.component.scss']
 })
-export class EdaBubblechartComponent implements OnInit {
+export class EdaVisualizationComponent implements OnInit {
 
   public options: any = {
     chart: {
@@ -68,12 +68,11 @@ export class EdaBubblechartComponent implements OnInit {
     }]
   }
 
-
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit()  {
     chartHolder = Highcharts.chart('container', this.options);
-    
+
   }
 
 }

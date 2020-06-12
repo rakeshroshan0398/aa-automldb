@@ -16,7 +16,7 @@ chartOptions1 = {
     type: 'column'
 },
 title: {
-    text: ''
+    text: 'Univariated Analysis'
 },
 subtitle: {
     text: ''
@@ -30,12 +30,8 @@ xAxis: {
 yAxis: {
     min: 0,
     title: {
-        text: 'Population (millions)',
-        align: 'high'
+        text: 'Population (millions)'
     },
-    labels: {
-        overflow: 'justify'
-    }
 },
 tooltip: {
     formatter: function() {
@@ -76,7 +72,7 @@ chartOptions = {
       type: "spline"
    },
    title: {
-      text: ""
+      text: "Bivariate Analysis"
    },
    subtitle: {
       text: ""
@@ -110,7 +106,7 @@ chartOptions2 = {
      plotShadow: false
   },
   title : {
-     text: ''   
+     text: 'Multivariate Analysis'   
   },
   tooltip : {
      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
