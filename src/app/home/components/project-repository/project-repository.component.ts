@@ -1,12 +1,14 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, AfterViewInit } from '@angular/core';
-import { HeaderComponent } from '../../components/header/header.component';
+// import { HeaderComponent } from '../../components/header/header.component';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-project-repository',
   templateUrl: './project-repository.component.html',
   styleUrls: ['./project-repository.component.scss']
 })
 export class ProjectRepositoryComponent implements OnInit {
-  @ViewChild(HeaderComponent) child;
+  // @ViewChild(HeaderComponent) child;
 
   myInputMessage: string = "hi";
   projectname: any;
@@ -41,7 +43,8 @@ export class ProjectRepositoryComponent implements OnInit {
   copyForm: boolean = false;
   routerData: any;
   actionName:any;
-  constructor() { }
+  constructor(public router: Router
+    ) { }
 
   ngOnInit(): void {
   }
@@ -106,15 +109,10 @@ export class ProjectRepositoryComponent implements OnInit {
   }
   selectstore(data) {
     console.log(data);
+    this.router.navigate([data]);
     console.log(this.projectchecked);
     if (this.projectchecked == true && data) {
       this.routerData = data;
-    }
-    if(this.actionName=this.action.find((obj)=>{
-      console.log(obj);
-      obj.name == data;
-    })){
-      console.log(this.actionName.name); 
     }
   }
 }

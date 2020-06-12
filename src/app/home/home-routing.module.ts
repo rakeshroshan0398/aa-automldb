@@ -7,9 +7,9 @@ import { HomeComponent }   from './home.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/ins-counterfeit', pathMatch: 'full' },
   // { path: 'project-repository', loadChildren: () => import('./components/project-repository/project-repository.module').then(m => m.ProjectRepositoryModule) },
+  { path: 'project-repository', loadChildren: () => import('./components/project-repository/project-repository.module').then(m => m.ProjectRepositoryModule) },
   { path: '', component: HomeComponent,
     children: [
-      { path: 'project-repository', loadChildren: () => import('./components/project-repository/project-repository.module').then(m => m.ProjectRepositoryModule) },
       { path: 'Deatils', loadChildren: () => import('./components/deatils/deatils.module').then(m => m.DeatilsModule) },
       { path: 'EDA', loadChildren: () => import('./components/eda/eda.module').then(m => m.EDAModule) },
       { path: 'EDA-Univarate', loadChildren: () => import('./components/eda/eda-univarate/eda-univarate.module').then(m => m.EDAUnivarateModule) },

@@ -1,151 +1,160 @@
-<div class="card">
-    <div class="row">
-        <div class="col-md-5 offset-md-1">
-            <div class="form-group has-search search" *ngIf="searchbox">
-                <span class="form-control-feedback"></span>
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-        </div>
-        <div class="col-md-6 iconssize">
-            <button class="fa fa-search icons" style="font-size:24px" (click)="search()"></button>
-            <button class="fa fa-plus-circle icons" style="font-size:24px" (click)="addproject()"></button>
-            <button class="fa fa-clone icons" style="font-size:24px"
-                [disabled]="(projectchecked == false) ? 'disabled': null" (click)="copy()"></button>
-            <button class="fa fa-trash icons" aria-hidden="true" style="font-size:24px" [disabled]="(projectchecked == false) ? 'disabled': null"></button></div>
-    </div>
-</div>
-<!-- <div class="row"> -->
-<!-- <div class="col-md-4 offset-md-6"> -->
+<app-header></app-header>
+<div class="container-fluid">
+    <!-- <div class="row"> -->
+    <!-- <div class="col-md-4 offset-md-6"> -->
 
-<div class="card">
-    <form *ngIf="form">
-        <div class="container">
-            <h4>Add Project</h4>
-            <button type="button" class="close" data-dismiss="modal" (click)="closeform()">&times;</button>
-            <hr>
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-                        <div class="form-group">
-                            <label for="projectNames">Project Name</label>
-                            <input type="text" class="form-control" name="projectNames" [(ngModel)]="model.projectNames" #projectNames="ngModel"
-                                [ngClass]="{ 'is-invalid': f.submitted && projectNames.invalid }" required />
-                            <div *ngIf="f.submitted && projectNames.invalid" class="invalid-feedback">
-                                <!-- <div *ngIf="projectNames.errors.required">Project Name is required</div> -->
+    <div class="card">
+        <form *ngIf="form">
+            <div class="container">
+                <h4>Add Project</h4>
+                <button type="button" class="close" data-dismiss="modal" (click)="closeform()">&times;</button>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                            <div class="form-group">
+                                <label for="projectNames">Project Name</label>
+                                <input type="text" class="form-control" name="projectNames"
+                                    [(ngModel)]="model.projectNames" #projectNames="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && projectNames.invalid }" required />
+                                <div *ngIf="f.submitted && projectNames.invalid" class="invalid-feedback">
+                                    <!-- <div *ngIf="projectNames.errors.required">Project Name is required</div> -->
+                                </div>
                             </div>
-                        </div>
-                        <input type="radio" id="dataset" name="data" value="dataset" (change)="changeData($event)">
-                        <label for="dataset">DataSet Path</label><br>
-                        <input type="radio" id="datafile" name="data" value="datafile" (change)="changeData($event)">
-                        <label for="datafile">DataSet File</label><br>
-                        <div class="form-group" *ngIf="datasetform">
-                            <label for="datasetinput">DataSet Path</label>
-                            <input type="text" class="form-control" name="Dataset_Path" [(ngModel)]="model.Dataset_Path" #Dataset_Path="ngModel"
-                                [ngClass]="{ 'is-invalid': f.submitted && Dataset_Path.invalid }" required />
-                            <div *ngIf="f.submitted && Dataset_Path.invalid" class="invalid-feedback">
-                                <div *ngIf="Dataset_Path.errors.required">DataSet Name Input is required</div>
+                            <input type="radio" id="dataset" name="data" value="dataset" (change)="changeData($event)">
+                            <label for="dataset">DataSet Path</label><br>
+                            <input type="radio" id="datafile" name="data" value="datafile"
+                                (change)="changeData($event)">
+                            <label for="datafile">DataSet File</label><br>
+                            <div class="form-group" *ngIf="datasetform">
+                                <label for="datasetinput">DataSet Path</label>
+                                <input type="text" class="form-control" name="Dataset_Path"
+                                    [(ngModel)]="model.Dataset_Path" #Dataset_Path="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && Dataset_Path.invalid }" required />
+                                <div *ngIf="f.submitted && Dataset_Path.invalid" class="invalid-feedback">
+                                    <div *ngIf="Dataset_Path.errors.required">DataSet Name Input is required</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="custom-file mb-3" *ngIf="datapath">
-                            <input type="file" class="custom-file-input" id="customFile" name="filename">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
+                            <div class="custom-file mb-3" *ngIf="datapath">
+                                <input type="file" class="custom-file-input" id="customFile" name="filename">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 
-<!-- Copy Form -->
+    <!-- Copy Form -->
 
-<div class="card" #viewreceiptmodal>
-    <form *ngIf="copyForm">
-        <div class="container">
-            <h4>Duplicate Form</h4>
-            <button type="button" class="close" data-dismiss="modal" (click)="copyclose()">&times;</button>
-            <hr>
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-                        <div class="form-group">
-                            <label for="projectName">Project Name</label>
-                            <input type="text" class="form-control" name="projectName" [(ngModel)]="projectName"
-                                [ngClass]="{ 'is-invalid': f.submitted}" required projectName/>
-                            <!-- <div *ngIf="f.submitted && projectName.invalid" class="invalid-feedback">
+    <div class="card" #viewreceiptmodal>
+        <form *ngIf="copyForm">
+            <div class="container">
+                <h4>Duplicate Form</h4>
+                <button type="button" class="close" data-dismiss="modal" (click)="copyclose()">&times;</button>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                            <div class="form-group">
+                                <label for="projectName">Project Name</label>
+                                <input type="text" class="form-control" name="projectName" [(ngModel)]="projectName"
+                                    [ngClass]="{ 'is-invalid': f.submitted}" required projectName />
+                                <!-- <div *ngIf="f.submitted && projectName.invalid" class="invalid-feedback">
                                 <div *ngIf="projectName.errors.required">Project Name is required</div>
                             </div> -->
-                        </div>
-                        <input type="radio" id="dataset" name="data" value="dataset" (change)="changeData($event)">
-                        <label for="dataset">DataSet Path</label><br>
-                        <input type="radio" id="datafile" name="data" value="datafile" (change)="changeData($event)">
-                        <label for="datafile">DataSet File</label><br>
-                        <div class="form-group" *ngIf="datasetform">
-                            <label for="datasetinput">DataSet Path</label>
-                            <input type="text" class="form-control" name="Dataset_Path" [(ngModel)]="Dataset_Path"
-                                [ngClass]="{ 'is-invalid': f.submitted}" required />
-                            <!-- <div *ngIf="f.submitted && Dataset_Path.invalid" class="invalid-feedback">
+                            </div>
+                            <input type="radio" id="dataset" name="data" value="dataset" (change)="changeData($event)">
+                            <label for="dataset">DataSet Path</label><br>
+                            <input type="radio" id="datafile" name="data" value="datafile"
+                                (change)="changeData($event)">
+                            <label for="datafile">DataSet File</label><br>
+                            <div class="form-group" *ngIf="datasetform">
+                                <label for="datasetinput">DataSet Path</label>
+                                <input type="text" class="form-control" name="Dataset_Path" [(ngModel)]="Dataset_Path"
+                                    [ngClass]="{ 'is-invalid': f.submitted}" required />
+                                <!-- <div *ngIf="f.submitted && Dataset_Path.invalid" class="invalid-feedback">
                                 <div *ngIf="Dataset_Path.errors.required">DataSet Name Input is required</div>
                             </div> -->
-                        </div>
-                        <div class="custom-file mb-3" *ngIf="datapath">
-                            <input type="file" class="custom-file-input" id="customFile" name="filename">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
+                            </div>
+                            <div class="custom-file mb-3" *ngIf="datapath">
+                                <input type="file" class="custom-file-input" id="customFile" name="filename">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
-    <!-- </div> -->
-    <!-- </div> -->
-</div>
+        </form>
+        <!-- </div> -->
+        <!-- </div> -->
+    </div>
 
-<form>
-    <div class="sidebar">
-        <div class="card">
-            <table class="table table-bordered table-striped cus-table aa-table table1">
-                <thead class="thead-inverse">
-                    <tr>
-                        <th><input type="checkbox" id="vehicle2" name="checkbox" value="Car"
-                                (change)="selectAll($event)"></th>
-                        <th>Project Name</th>
-                        <th>Dataset Path</th>
-                        <th>Action</th>
-                        <th *ngIf="routerData">Perform</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of repodata">
-                        <td><input type="checkbox" id="vehicle2" name="checkbox" [checked]="item.selected" value="Car"
-                                (change)="toggle(item,$event)"
-                                (click)="editDetail(viewreceiptmodal,item.id,item.project_name,item.DatasetPath)"></td>
-                        <td routerLink="/Deatils" class="projectname">{{item.project_name}}</td>
-                        <td>{{item.DatasetPath}}</td>
-                        <td><select class="form-control selecttag" name="store" (change)="selectstore($event.target.value)" required>
-                            <option>Select Action</option>
-                                <option *ngFor="let data of action">{{data.name}}</option>
-                                <!-- <option value="Deatils">Deatils</option>
+    <form>
+        <div class="sidebar">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-5 offset-md-1">
+                        <div class="form-group has-search search" *ngIf="searchbox">
+                            <span class="form-control-feedback"></span>
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                    </div>
+                    <div class="col-md-5 offset-md-1 iconssize">
+                        <button class="fa fa-search icons" style="font-size:24px" (click)="search()"></button>
+                        <button class="fa fa-plus-circle icons" style="font-size:24px" (click)="addproject()"></button>
+                        <button class="fa fa-clone icons" style="font-size:24px"
+                            [disabled]="(projectchecked == false) ? 'disabled': null" (click)="copy()"></button>
+                        <button class="fa fa-trash icons" aria-hidden="true" style="font-size:24px"
+                            [disabled]="(projectchecked == false) ? 'disabled': null"></button></div>
+                </div>
+                <table class="table table-bordered table-striped cus-table aa-table table1 col-md-10 offset-md-1">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th><input type="checkbox" id="vehicle2" name="checkbox" value="Car"
+                                    (change)="selectAll($event)"></th>
+                            <th>Project Name</th>
+                            <th>Dataset Path</th>
+                            <th>Action</th>
+                            <!-- <th *ngIf="routerData">Perform</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of repodata">
+                            <td><input type="checkbox" id="vehicle2" name="checkbox" [checked]="item.selected"
+                                    value="Car" (change)="toggle(item,$event)"
+                                    (click)="editDetail(viewreceiptmodal,item.id,item.project_name,item.DatasetPath)">
+                            </td>
+                            <td routerLink="/Deatils" class="projectname">{{item.project_name}}</td>
+                            <td>{{item.DatasetPath}}</td>
+                            <td><select class="form-control selecttag" name="store"
+                                    (change)="selectstore($event.target.value)" required>
+                                    <option>Select Action</option>
+                                    <option *ngFor="let data of action" routerLink="/{{routerData}}">{{data.name}}</option>
+                                    <!-- <option value="Deatils">Deatils</option>
                                 <option value="EDA">EDA</option>
                                 <option value="Data-preprocessing">Data Preprocessing</option>
                                 <option value="Feature-Engineering">Feature Engineering</option>
                                 <option value="Predict">Predict</option>
                                 <option value="Download">Download</option>
                                 <option value="Delete">Delete</option> -->
-                            </select></td>
-                            <td  *ngIf="routerData"><button routerLink="/{{routerData}}" class="btn btn-primary">Go</button></td>
-                    </tr>
-                </tbody>
-            </table>
+                                </select></td>
+                            <!-- <td *ngIf="routerData"><button routerLink="/{{routerData}}"
+                                    class="btn btn-primary">Go</button></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+    </form>
+    <div>
+        <!-- <app-header></app-header> -->
     </div>
-</form>
-<div>
-    <!-- <app-header></app-header> -->
 </div>
