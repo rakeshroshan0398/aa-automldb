@@ -5,6 +5,7 @@ import { EDARoutingModule } from './eda-routing.module';
 import { EDAComponent } from './eda.component';
 import { ChartModule } from 'angular-highcharts';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     CommonModule,
     EDARoutingModule,
     ChartModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

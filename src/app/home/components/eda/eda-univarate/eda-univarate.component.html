@@ -13,6 +13,13 @@
             <select class="form-control selecttag" name="store" required>
                 <option>Select Feature</option>
               </select>
+              <ng-multiselect-dropdown
+  [settings]="dropdownSettings"
+  [data]="dropdownList"
+  (onSelect)="onItemSelect($event)"
+  (onSelectAll)="onSelectAll($event)"
+>
+</ng-multiselect-dropdown>
               <br>
               <select class="form-control selecttag" name="store" required>
                 <option>Select Technique</option>

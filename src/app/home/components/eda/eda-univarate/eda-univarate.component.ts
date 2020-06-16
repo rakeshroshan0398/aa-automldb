@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import { IDropdownSettings } from 'ng-multiselect-dropdown/public_api';
 
 @Component({
   selector: 'app-eda-univarate',
@@ -67,9 +68,34 @@ export class EDAUnivarateComponent implements OnInit {
       data: [107, 31, 635, 203, 2]
   }]
 };
+dropdownSettings = {};
+dropdownList = [];
+  selectedItems = [];
+
   constructor() { }
 
   ngOnInit(): void {
+    this.dropdownList = [
+      { item_id: 1, item_text: '1' },
+      { item_id: 2, item_text: '2' },
+      { item_id: 3, item_text: '3' },
+      { item_id: 4, item_text: '4' },
+      { item_id: 5, item_text: '5' }
+    ];
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
   }
-
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
+  }
 }

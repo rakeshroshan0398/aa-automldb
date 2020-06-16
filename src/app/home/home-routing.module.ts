@@ -6,7 +6,6 @@ import { HomeComponent }   from './home.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/ins-counterfeit', pathMatch: 'full' },
-  // { path: 'project-repository', loadChildren: () => import('./components/project-repository/project-repository.module').then(m => m.ProjectRepositoryModule) },
   { path: 'project-repository', loadChildren: () => import('./components/project-repository/project-repository.module').then(m => m.ProjectRepositoryModule) },
   { path: '', component: HomeComponent,
     children: [

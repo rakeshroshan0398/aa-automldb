@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'angular-highcharts';
 import * as Highcharts from 'highcharts';
+import { IDropdownSettings } from 'ng-multiselect-dropdown/public_api';
 
 @Component({
   selector: 'app-eda',
@@ -184,15 +185,108 @@ chartOptions2 = {
 //       ]
 //    }]
 // });
-
+dropdownSettings = {};
+dropdownList = [];
+technique = [
+  {id:"1","chart":"Univarate"},
+  {id:"2","chart":"Biviarate"},
+  {id:"3","chart":"Multivarate"}
+]
+array = [];
+selectedArray = [];
+selectedtechnique:any;
+selectedFeature = [];
+selectedFeatures = [];
+submitteddata = [];
+submittedtecnique:any;
   constructor() {
    }
 
   ngOnInit(): void {
     // Highcharts.chart('treemap1', this.treeMapOptions);
-
+    this.dropdownList = [
+      { item_id: 1, item_text: 'a' },
+      { item_id: 2, item_text: 'b' },
+      { item_id: 3, item_text: 'c' },
+    ];
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
+  }
+  onItemSelect(item: any) {
+    console.log(this.technique)
+    console.log(item);
+    this.selectedFeature.push(item);
+    console.log(this.selectedFeature);
+    console.log(this.selectedFeature.length);
+    if(this.selectedFeature.length == 1){
+      this.array.pop();
+      this.array.push(this.technique[0]);
+      console.log(this.array);
+    }else if(this.selectedFeature.length == 2){
+      this.array.pop();
+      this.array.push(this.technique[1]);
+    }else if(this.selectedFeature.length > 2){
+      this.array.pop();
+      this.array.push(this.technique[2]);
+    }
+    console.log(this.array);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
+    this.selectedFeatures.push(items);
+    console.log(this.selectedFeatures);
+    console.log(this.selectedFeatures[0].length);
+    if(this.selectedFeatures[0].length == 1){
+      this.array.push(this.technique[0]);
+     }else if(this.selectedFeatures[0].length == 2){
+      this.array.push(this.technique[1]);
+     }else if(this.selectedFeatures[0].length > 2){
+      this.array.push(this.technique[2]);
+     }
+    console.log(this.array);
   }
   piechart(){
     this.piecharttab = true;
   }
+  selectTechnique(value){
+    console.log(value);
+    this.selectedtechnique = value;
+    
+  }
+   onDeSelect(item: any) {
+    this.selectedFeature.pop();
+    this.array.pop();
+    console.log(this.selectedFeature.length);
+     console.log(item);
+     console.log(this.array);
+     console.log(this.array);
+     if(this.selectedFeature.length == 1){
+      this.array.push(this.technique[0]);
+     }else if(this.selectedFeature.length == 2){
+      this.array.push(this.technique[1]);
+     }else if(this.selectedFeature.length > 2){
+      this.array.push(this.technique[2]);
+     }
+  //  this.array.pop();
+  //  console.log(this.array);
+   }
+   onDeSelectAll(items:any){
+     console.log(items);
+     this.selectedFeatures[0].pop();
+    // this.array.pop();
+    console.log(this.selectedFeatures[0].length);
+   }
+   Submit(){
+    console.log(this.array);
+    this.submittedtecnique = this.selectedtechnique;
+    console.log(this.submittedtecnique);
+    this.submitteddata = this.array;
+   }
 }

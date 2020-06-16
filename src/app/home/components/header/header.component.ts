@@ -18,20 +18,20 @@ export class HeaderComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    
-  }
-  send(){
     console.log('input',this.myinputMsg);
     this.projectname = this.myinputMsg;
-   console.log(this.projectname);
-   // this.outputMessage = this.myinputMsg;
-   console.log('output',this.projectname);
-   this.myOutput.emit(this.projectname);
-   console.log(this.myOutput);
-   // if(this.dataMsg){
-   //     this.datamessage = true;
-   // }
+    console.log('projectname',this.projectname);
   }
+  // send(){
+    
+  //  // this.outputMessage = this.myinputMsg;
+  //  console.log('output',this.projectname);
+  //  this.myOutput.emit(this.projectname);
+  //  console.log(this.myOutput);
+  //  // if(this.dataMsg){
+  //  //     this.datamessage = true;
+  //  // }
+  // }
   navigateTo(path) {
     this.router.navigate([path]);
   }
