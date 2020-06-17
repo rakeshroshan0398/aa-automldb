@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, AfterViewInit } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { Router } from '@angular/router';
+import { createOfflineCompileUrlResolver } from '@angular/compiler';
 
 @Component({
   selector: 'app-project-repository',
@@ -18,10 +19,10 @@ export class ProjectRepositoryComponent implements OnInit {
   searchText:string='';
   project_name=[];
   repodata = [
-    { "id": 1, "project_name": "Titanic", "DatasetPath": "/titanic", "label": 'a', "selected": false },
-    { "id": 2, "project_name": "Credit card Defaultor", "DatasetPath": "/titanic", "label": 'a', "selected": false },
-    { "id": 3, "project_name": "Prediction", "DatasetPath": "/titanic", "label": 'a', "selected": false },
-    { "id": 4, "project_name": "Micro", "DatasetPath": "/titanic", "label": 'a', "selected": false },
+    { "id": 0, "project_name": "Titanic", "DatasetPath": "/titanic", "label": 'a', "selected": false },
+    { "id": 1, "project_name": "Credit card Defaultor", "DatasetPath": "/titanic", "label": 'a', "selected": false },
+    { "id": 2, "project_name": "Prediction", "DatasetPath": "/titanic", "label": 'a', "selected": false },
+    { "id": 3, "project_name": "Micro", "DatasetPath": "/titanic", "label": 'a', "selected": false },
   ];
   action =[
     {"id":"1","name":"Deatils"},
@@ -40,10 +41,11 @@ export class ProjectRepositoryComponent implements OnInit {
   datapath: boolean = false;
   searchbox = false;
   projectchecked: boolean = false;
-  id_no: string;
+  id_no: number;
   projectName: string;
   Dataset_Path: string;
   copyForm: boolean = false;
+  noneditable:boolean = true;
   routerData: any;
   actionName:any;
   repositorydata = [];
@@ -155,7 +157,8 @@ export class ProjectRepositoryComponent implements OnInit {
   search() {
     this.searchbox = true;
   }
-  editDetail(viewreceiptmodal, id: string, project_name: string, DatasetPath: string) {
+  editDetail(viewreceiptmodal, id: number, project_name: string, DatasetPath: string) {
+    this.noneditable = false;
     this.copyForm = true;
     this.form = false;
     console.log(viewreceiptmodal);
@@ -167,6 +170,9 @@ export class ProjectRepositoryComponent implements OnInit {
     console.log(this.projectName);
     console.log(this.Dataset_Path);
     // }
+  }
+  displayAllDetails(index: number): boolean {
+    return index === this.id_no;
   }
   copy() {
     this.copyForm = true;
@@ -204,6 +210,18 @@ export class ProjectRepositoryComponent implements OnInit {
   copyclose() {
     this.copyForm = false;
   }
+  clearDisplayIndex(){
+    this.id_no = -1;
+  }
+  update(){
+    let experimentUpdatetingdetails = {
+      "id": this.id_no,
+      "projectName": this.projectName,
+    }
+    this.id_no = -1;
+
+    console.log(experimentUpdatetingdetails);
+  }
   selectstore(data) {
     console.log(data);
     this.router.navigate([data]);
@@ -219,5 +237,18 @@ export class ProjectRepositoryComponent implements OnInit {
         ( val.project_name !== undefined && val.project_name !== null && val.project_name.toLowerCase().indexOf(searchId) !== -1 ));
         return status;
     });
+  }
+  delete(){
+    console.log(this.index);
+    console.log(this.id);
+    if(this.indexarray.length == 1){ 
+    this.repodata.splice(this.index, 1);
+    this.indexarray.pop();
+    }else if(this.indexarray.length > 1){
+    for(let i=0;i<this.indexarray.length;i++){
+      this.repodata.splice(this.indexarray[i], 1);
+    // console.log(this.repodata.splice(this.indexarray[i],i));
+    }
+  }
   }
 }

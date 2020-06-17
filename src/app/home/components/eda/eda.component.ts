@@ -240,14 +240,14 @@ submittedtecnique:any;
   }
   onSelectAll(items: any) {
     console.log(items);
-    this.selectedFeatures.push(items);
-    console.log(this.selectedFeatures);
-    console.log(this.selectedFeatures[0].length);
-    if(this.selectedFeatures[0].length == 1){
+    this.selectedFeature.push(items);
+    console.log(this.selectedFeature);
+    console.log(this.selectedFeature[0].length);
+    if(this.selectedFeature[0].length == 1){
       this.array.push(this.technique[0]);
-     }else if(this.selectedFeatures[0].length == 2){
+     }else if(this.selectedFeature[0].length == 2){
       this.array.push(this.technique[1]);
-     }else if(this.selectedFeatures[0].length > 2){
+     }else if(this.selectedFeature[0].length > 2){
       this.array.push(this.technique[2]);
      }
     console.log(this.array);
@@ -279,9 +279,9 @@ submittedtecnique:any;
    }
    onDeSelectAll(items:any){
      console.log(items);
-     this.selectedFeatures[0].pop();
-    // this.array.pop();
-    console.log(this.selectedFeatures[0].length);
+     this.selectedFeature[0].pop();
+    this.array.pop();
+    console.log(this.selectedFeature[0].length);
    }
    Submit(){
     console.log(this.array);
