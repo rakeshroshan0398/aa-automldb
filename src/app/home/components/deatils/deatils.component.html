@@ -1,35 +1,46 @@
-<div class="sidebar">
-    <!-- <div class="row"> -->
-        <!-- <div class="col-md-3">
- <div class="card">
-    <h4 class="repo">Titanic</h4>
-    <p class="sidenav" rouetLink="/Details">Details></p>
-    <p class="sidenav">EDA></p>
-    <p class="sidenav">Data Preprocessing></p>
-    <p class="sidenav">Feature Engineering></p>
-    <p class="sidenav">Predict></p>
-    <p class="aboutnav">About</p>
- </div>
- </div> -->
- <div class="card mt-4">
-    <table class="table table-bordered table-striped cus-table aa-table table1" >
-        <thead class="thead-inverse">
-          <tr>
-            <th>Name</th>
-            <th>ID</th>
-            <th>Age</th>
-            <th>Education</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of projectdata">
-                <td>{{item.name}}</td>
-                <td>{{item.ID}}</td>
-                <td>{{item.age}}</td>
-                <td>{{item.education}}</td>
-            </tr>
-        </tbody>
-      </table>
- </div>
- <!-- </div> -->
-</div> 
+<ngx-tabset customNavClass="nav-test-class" customTabsClass="container" class="ngxtab">
+    <ngx-tab tabTitle="Pandas-Profilling">
+        <div class="card data" height="200" width="300">
+        <iframe src=""></iframe>
+        </div>
+    </ngx-tab>
+    <ngx-tab tabTitle="Dataset-Summary" [bypassDOM]="true">
+      <ng-template>
+        <div class="sidebar">
+            <!-- <div class="row"> -->
+                <!-- <div class="col-md-3">
+         <div class="card">
+            <h4 class="repo">Titanic</h4>
+            <p class="sidenav" rouetLink="/Details">Details></p>
+            <p class="sidenav">EDA></p>
+            <p class="sidenav">Data Preprocessing></p>
+            <p class="sidenav">Feature Engineering></p>
+            <p class="sidenav">Predict></p>
+            <p class="aboutnav">About</p>
+         </div>
+         </div> -->
+         <div class="card data mt-4">
+            <table class="table table-bordered table-striped cus-table aa-table table1" >
+                <thead class="thead-inverse">
+                  <tr>
+                    <th>Name</th>
+                    <th>ID</th>
+                    <th>Age</th>
+                    <th>Education</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of projectdata">
+                        <td>{{item.name}}</td>
+                        <td>{{item.ID}}</td>
+                        <td>{{item.age}}</td>
+                        <td>{{item.education}}</td>
+                    </tr>
+                </tbody>
+              </table>
+         </div>
+         <!-- </div> -->
+        </div> 
+      </ng-template>
+    </ngx-tab>
+  </ngx-tabset>

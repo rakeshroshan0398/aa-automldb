@@ -96,7 +96,7 @@
                         <td><i class="fa fa-edit accordion-toggle collapsed" id="accordion1" data-toggle="collapse"
                             data-parent="#accordion1" href="#collapseone" style="font-size:24px" (click)="editDetail(viewreceiptmodal,i,item.project_name,item.DatasetPath)" *ngIf="!displayAllDetails(i)"></i>
                             <i *ngIf="displayAllDetails(i)" class="fa fa-times aa-close" (click)="clearDisplayIndex()" title="Close all details"></i>&nbsp;
-                            <button class="btn btn-primary" *ngIf="displayAllDetails(i)" (click)="update()">Save</button>
+                            <button class="btn btn-primary" *ngIf="displayAllDetails(i)" (click)="update(i)">Save</button>
                             <!-- <select class="form-control selecttag" name="store"
                                 (change)="selectstore($event.target.value)" required>
                                 <option>Select Action</option>

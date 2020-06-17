@@ -55,9 +55,11 @@ export class ProjectRepositoryComponent implements OnInit {
   checkedarray = [];
   names:any;
   namearray=[];
+
+  objectIndex:any;
   constructor(public router: Router
     ) { }
-
+    dataSource = this.repodata;
   ngOnInit(): void {
     this.repositorydata = this.repodata;
     console.log(this.repositorydata);
@@ -153,6 +155,7 @@ export class ProjectRepositoryComponent implements OnInit {
     console.log(event);
     const checked = event.target.checked;
     this.repodata.forEach(item => item.selected = checked);
+    console.log(this.indexarray);
   }
   search() {
     this.searchbox = true;
@@ -213,15 +216,18 @@ export class ProjectRepositoryComponent implements OnInit {
   clearDisplayIndex(){
     this.id_no = -1;
   }
-  update(){
-    let experimentUpdatetingdetails = {
-      "id": this.id_no,
-      "projectName": this.projectName,
+  update(row_obj){
+ 
+    this.dataSource = this.dataSource.filter((value,key)=>{
+    console.log('update1')
+    if(value.id == this.id_no){
+    value.project_name = this.projectName;
+    console.log('update2')
     }
+    return true;
+    });
     this.id_no = -1;
-
-    console.log(experimentUpdatetingdetails);
-  }
+    }
   selectstore(data) {
     console.log(data);
     this.router.navigate([data]);
@@ -240,15 +246,14 @@ export class ProjectRepositoryComponent implements OnInit {
   }
   delete(){
     console.log(this.index);
-    console.log(this.id);
     if(this.indexarray.length == 1){ 
     this.repodata.splice(this.index, 1);
     this.indexarray.pop();
     }else if(this.indexarray.length > 1){
     for(let i=0;i<this.indexarray.length;i++){
       this.repodata.splice(this.indexarray[i], 1);
-    // console.log(this.repodata.splice(this.indexarray[i],i));
-    }
+  }
+    this.indexarray = [];
   }
   }
 }

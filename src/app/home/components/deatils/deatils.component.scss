@@ -1,13 +1,24 @@
-.sidenav{
-    font-size: 20px;
-    margin-left: 10px;
-    cursor: pointer;
-    }
-    .repo{
-        margin-left: 10px;
-    }
-    .aboutnav{
-        font-size: 20px;
-        margin-left: 10px; 
-        margin-top: 287px;
-    }
+.sidenav {
+  font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.repo {
+  margin-left: 10px;
+}
+.aboutnav {
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 287px;
+}
+.data,
+iframe {
+  min-height: 570px;
+  width: 100%;
+}
+.ngxtab {
+  cursor: pointer;
+}
+ngx-tab {
+  text-decoration: none;
+}

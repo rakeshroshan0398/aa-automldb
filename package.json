@@ -30,6 +30,7 @@
     "ng-angular9-datatable": "^0.9.13",
     "ng-multiselect-dropdown": "^0.2.10",
     "ngx-embed-video": "^1.0.4",
+    "ngx-tabset": "^2.2.0",
     "rxjs": "~6.5.4",
     "rxjs-compat": "^6.5.5",
     "tslib": "^1.10.0",
