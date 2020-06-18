@@ -1,26 +1,32 @@
-<nav class="navbar navbar-expand-sm bg-light  justify-content-center background">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link">AUTOML</a>
-      </li>
-    </ul>
-  </nav>
-<!-- Project Repositry -->
-  <section class="container-fluid">
-    <div class="card cardsize">
-      <div class="row">
-          <div class="col-md-3 offset-md-1 projectrepo" rouetLink="/project-repository">
-          Projects Repository
-          </div>
-          <div class="col-md-4 offset-md-4 iconssize">
-            <i class="fa fa-plus-circle icons" style="font-size:24px"></i>
-            <i class="fa fa-search icons" style="font-size:24px"></i>
-            <i class="fa fa-clone icons" style="font-size:24px"></i>
-            <i class="fa fa-trash icons" aria-hidden="true" style="font-size:24px"></i>            </div>
-        <!-- <div class="col-md-1 offset-md-8 add">ADD</div>
-        <div class="col-md-1">Search</div>
-        <div class="col-md-1">Duplicate</div>
-        <div class="col-md-1">Delete</div> -->
-        </div>            
+<nav class="navbar navbar-expand-md navbar-light bg-light background">
+  <a href="#" class="navbar-brand">
+      <img src="assets/images/affine-logo.svg" class="mb-2" height="40"  width="140" alt="affine">
+  </a>
+<div>
+<h4 class="login">AutoML</h4>
+</div>
+  <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+  </button> -->
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ml-auto">
+          <!-- <a href="#" class="nav-item nav-link active">Home</a>
+          <a href="#" class="nav-item nav-link">Profile</a>
+          <a href="#" class="nav-item nav-link">Messages</a> -->
+      </div>
   </div>
+</nav>
+
+<!-- Project Repositry -->
+  <section class="container">
+      <div class="row">
+          <div class="col-md-6 projectrepo" routerLink="/project-repository">
+          Experiment:{{myinputMsg}}
+          </div>
+          <div class="col-md-3 offset-md-1 projectrepo" rouetLink="/project-repository" *ngIf="datamessage">
+            Data-Set-Path:{{dataMsg}}
+            </div>
+        </div>  
+        <hr>          
 </section>
