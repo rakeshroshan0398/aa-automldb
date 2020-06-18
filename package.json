@@ -29,6 +29,7 @@
     "jquery": "^3.5.1",
     "ng-angular9-datatable": "^0.9.13",
     "ng-multiselect-dropdown": "^0.2.10",
+    "ngx-bootstrap": "^5.6.1",
     "ngx-embed-video": "^1.0.4",
     "ngx-tabset": "^2.2.0",
     "rxjs": "~6.5.4",

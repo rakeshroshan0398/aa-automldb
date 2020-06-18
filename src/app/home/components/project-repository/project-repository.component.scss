@@ -2,6 +2,9 @@
   // border:1px solid black;
   height: 70px;
 }
+.card{
+  margin-top:10px;
+}
 .projectrepo {
   margin-top: 15px;
   font-size: 24px;
@@ -42,7 +45,7 @@
 table{
     margin-top:20px;
 }
-.container{
+.form{
     border:2px solid blue;
 }
 .icon{
@@ -63,4 +66,43 @@ footer {
     font-size: 11px;
     text-align: right;
   }
-
+  .plusbutton{
+    border-radius: 13px;
+    background: #4646ad !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 10px;
+    color:white;
+    border:#4646ad !important;
+  }
+  .input-group-append{
+    margin-left: -40px !important;
+  }
+  .search{
+    margin-top: 1px;
+    border-radius:14px;
+  }
+  .copy{
+    margin-left: -22px;
+  }
+  .fa-clone{
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 15px;
+    background-color: #36adde;
+    // color:white;
+    border:  #36adde;
+    }
+.fa-trash{
+    background-color: red;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left: 4px;
+    border-radius: 15px;
+    // color:white;
+    border: red;
+}

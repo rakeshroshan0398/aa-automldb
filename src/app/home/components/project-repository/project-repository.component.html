@@ -1,28 +1,44 @@
 <app-header [myinputMsg]="projectname"></app-header>
-<div class="container-fluid">
+<div class="container">
     <div class="sidebar">
-        <div class="card">
-            <div class="row">
-                <div class="col-md-4 offset-md-1">
-                    <div class="input-group icon">
-                        <input class="form-control py-2 border-right-0 border" type="search" value="search"
-                            [(ngModel)]="searchText" (keyup)="searchValue($event)" placeholder="Search">
-                        <span class="input-group-append">
-                            <button class="btn btn-outline-secondary border-left-0 border" type="button">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-md-4 offset-md-3 iconssize">
-                    <button class="fa fa-plus-circle icons" style="font-size:24px" (click)="addproject()"></button>
-                    <button class="fa fa-clone icons" style="font-size:24px"
-                         [disabled]="(project_name.length <= 0) ? 'disabled': null" (click)="copy()"></button>
-                    <button class="fa fa-trash icons" aria-hidden="true" style="font-size:24px"
-                     [disabled]="(project_name.length <= 0) ? 'disabled': null" (click)="delete()"></button></div>
+        <div class="row">
+            <div class="col-md-4">
+                <button class="fa fa-plus-circle plusbutton" style="font-size:18px" (click)="addproject()">&nbsp;&nbsp;Add New Project</button>
+                <!-- <div class="input-group icon">
+                    <input class="form-control py-2 border-right-0 border" type="search" value="search"
+                        [(ngModel)]="searchText" (keyup)="searchValue($event)" placeholder="Search">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div> -->
             </div>
+            <div class="col-md-6 offset-md-2">
+                <div class="row">
+                <div class="input-group col-md-8">
+                    <input class="form-control py-2 border-right-0 border search" type="search" value="search"
+                        [(ngModel)]="searchText" (keyup)="searchValue($event)" placeholder="Search">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+                <div class="col-md-2 copy">
+                <button class="fa fa-clone" style="font-size:18px"
+                     [disabled]="(project_name.length <= 0) ? 'disabled': null" (click)="copy()">&nbsp;Clone</button>
+                </div>
+                <div class="col-md-2">
+                <button class="fa fa-trash" aria-hidden="true" style="font-size:18px"
+                 [disabled]="(project_name.length <= 0) ? 'disabled': null" (click)="delete()">Delete</button>
+                 </div>
+                </div>
+                 </div>
+        </div>
+        <div class="card">
             <!-- ADD PROJECT FORM -->
-            <div class="container col-md-8 offset-md-2" *ngIf="form">
+            <div class="container form col-md-8 offset-md-2" *ngIf="form">
                 <form>
                     <h4>Add Project</h4>
                     <button type="button" class="close" data-dismiss="modal" (click)="closeform()">&times;</button>

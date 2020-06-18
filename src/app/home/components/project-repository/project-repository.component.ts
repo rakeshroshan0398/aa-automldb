@@ -12,26 +12,26 @@ export class ProjectRepositoryComponent implements OnInit {
   // @ViewChild(HeaderComponent) child;
   @Output() messageEvent = new EventEmitter<string>();
   myInputMessage: string = "hi";
-  message:string = "Input feild";
+  message: string = "Input feild";
   projectname: any;
   header: boolean = false;
   datasetpath: string;
-  searchText:string='';
-  project_name=[];
+  searchText: string = '';
+  project_name = [];
   repodata = [
     { "id": 0, "project_name": "Titanic", "DatasetPath": "/titanic", "label": 'a', "selected": false },
     { "id": 1, "project_name": "Credit card Defaultor", "DatasetPath": "/titanic", "label": 'a', "selected": false },
     { "id": 2, "project_name": "Prediction", "DatasetPath": "/titanic", "label": 'a', "selected": false },
     { "id": 3, "project_name": "Micro", "DatasetPath": "/titanic", "label": 'a', "selected": false },
   ];
-  action =[
-    {"id":"1","name":"Deatils"},
-    {"id":"2","name":"EDA"},
-    {"id":"3","name":"Data-preprocessing"},
-    {"id":"4","name":"Feature-Engineering"},
-    {"id":"5","name":"Predict"},
-    {"id":"6","name":"Download"},
-    {"id":"7","name":"Delete"},
+  action = [
+    { "id": "1", "name": "Deatils" },
+    { "id": "2", "name": "EDA" },
+    { "id": "3", "name": "Data-preprocessing" },
+    { "id": "4", "name": "Feature-Engineering" },
+    { "id": "5", "name": "Predict" },
+    { "id": "6", "name": "Download" },
+    { "id": "7", "name": "Delete" },
   ]
   model: any = {};
   form: boolean = false;
@@ -45,21 +45,21 @@ export class ProjectRepositoryComponent implements OnInit {
   projectName: string;
   Dataset_Path: string;
   copyForm: boolean = false;
-  noneditable:boolean = true;
+  noneditable: boolean = true;
   routerData: any;
-  actionName:any;
+  actionName: any;
   repositorydata = [];
-  id:any;
-  index:any;
+  id: any;
+  index: any;
   indexarray = [];
   checkedarray = [];
-  names:any;
-  namearray=[];
-
-  objectIndex:any;
+  names: any;
+  namearray = [];
+  array = [];
+  objectIndex: any;
   constructor(public router: Router
-    ) { }
-    dataSource = this.repodata;
+  ) { }
+  dataSource = this.repodata;
   ngOnInit(): void {
     this.repositorydata = this.repodata;
     console.log(this.repositorydata);
@@ -71,31 +71,31 @@ export class ProjectRepositoryComponent implements OnInit {
     // console.log(this.projectname);
   }
   toggle(data, event) {
-     this.id = data.id;
-     this.projectname = data.project_name;
- 
-     this.datasetpath = data.DatasetPath;
-     console.log(this.datasetpath);
-    console.log('data',data);
+    this.id = data.id;
+    this.projectname = data.project_name;
+
+    this.datasetpath = data.DatasetPath;
+    console.log(this.datasetpath);
+    console.log('data', data);
     console.log(event.target.checked);
     this.projectchecked = event.target.checked;
-    for(let i=0 ;i<this.repodata.length;i++){
+    for (let i = 0; i < this.repodata.length; i++) {
 
     }
     console.log(this.repodata)
-    
-    if(this.projectchecked == true){
-      let name={
-          id:this.id,
-          project_name:this.projectname + '_copy',
-          DatasetPath: this.datasetpath,
-          label:"a",
-          selected: false,
+
+    if (this.projectchecked == true) {
+      let name = {
+        id: this.id,
+        project_name: this.projectname + '_copy',
+        DatasetPath: this.datasetpath,
+        label: "a",
+        selected: false,
       }
       this.names = name;
-      console.log('name',name);
+      console.log('name', name);
       this.namearray.push(this.names);
-      this.checkedarray.push(name); 
+      this.checkedarray.push(name);
       console.log(this.checkedarray);
       // for(let i=0;i<this.checkedarray.length;i++){
       this.index = this.repodata.findIndex(x => x.project_name === this.projectname);
@@ -103,12 +103,12 @@ export class ProjectRepositoryComponent implements OnInit {
       // }
       this.indexarray.push(this.index);
       console.log(this.indexarray);
-            }
+    }
 
-      // this.repodata.splice(this.index + 1,0, name); 
-      console.log(this.repodata);
-    
-      // this.repodata.push(name);
+    // this.repodata.splice(this.index + 1,0, name); 
+    console.log(this.repodata);
+
+    // this.repodata.push(name);
     //   else if(this.projectchecked == false){
     //   this.repodata.pop();
     // }
@@ -116,14 +116,18 @@ export class ProjectRepositoryComponent implements OnInit {
     console.log(data.project_name);
     this.projectname = data.project_name;
     console.log(this.projectname);
-    if(this.projectchecked == true){
-    this.project_name.push(this.projectname);
-    console.log(this.project_name);
+    if (this.projectchecked == true) {
+      this.project_name.push(this.projectname);
+      console.log(this.project_name);
     }
-    else if(this.projectchecked === false){
+    else if (this.projectchecked === false) {
       console.log(this.projectchecked);
       this.project_name.pop();
       console.log(this.project_name);
+      this.index = this.repodata.findIndex(x => x.project_name === this.projectname);
+      this.indexarray.splice(0, 1);
+      console.log(this.indexarray);
+      console.log(this.index);
     }
     this.datasetpath = data.DatasetPath;
     // this.myInputMessage = "Titanic";
@@ -156,6 +160,34 @@ export class ProjectRepositoryComponent implements OnInit {
     const checked = event.target.checked;
     this.repodata.forEach(item => item.selected = checked);
     console.log(this.indexarray);
+    if (checked == true) {
+      for (let i = 0; i < this.repodata.length; i++) {
+        this.project_name.push(this.repodata[i].project_name);
+        let name = {
+          id: this.id,
+          project_name: this.repodata[i].project_name + '_copy',
+          DatasetPath: this.repodata[i].DatasetPath,
+          label: "a",
+          selected: false,
+        }
+        console.log(name);
+        this.indexarray.push(i);
+        this.index = this.repodata.findIndex(x => x.project_name === this.projectname);
+        console.log(this.index);
+        // this.names = name;
+        //   console.log('name', name);
+        //   this.namearray.push(this.names);
+        this.checkedarray.push(name);
+        console.log(this.checkedarray);
+        // console.log(this.indexarray);
+      }
+      console.log(this.project_name);
+      console.log(this.indexarray);
+
+    } else if (checked == false) {
+      this.project_name = [];
+      this.indexarray = [];
+    }
   }
   search() {
     this.searchbox = true;
@@ -200,34 +232,39 @@ export class ProjectRepositoryComponent implements OnInit {
     //   else if(this.projectchecked == false){
     //   this.repodata.pop();
     // }
-    if(this.checkedarray.length == 1){
-      this.repodata.splice(this.index + 1,0, this.names); 
+    if (this.indexarray.length == 1) {
+      this.repodata.splice(this.index + 1, 0, this.names);
+      this.indexarray.pop();
     }
-    if(this.indexarray.length > 1){
-    for(let i=0;i<this.indexarray.length;i++){
-      console.log(this.indexarray[i]);
-    this.repodata.splice(this.indexarray[i] + i + 1 ,0, this.checkedarray[i]);
-    }
+    if (this.indexarray.length > 1) {
+      for (let i = 0; i < this.indexarray.length; i++) {
+        console.log(this.indexarray);
+        this.repodata.splice(this.indexarray[i] + i + 1, 0, this.checkedarray[i]);
+      }
+      this.checkedarray = [];
+      this.indexarray = [];
+      console.log(this.checkedarray);
+      console.log(this.indexarray);
     }
   }
   copyclose() {
     this.copyForm = false;
   }
-  clearDisplayIndex(){
+  clearDisplayIndex() {
     this.id_no = -1;
   }
-  update(row_obj){
- 
-    this.dataSource = this.dataSource.filter((value,key)=>{
-    console.log('update1')
-    if(value.id == this.id_no){
-    value.project_name = this.projectName;
-    console.log('update2')
-    }
-    return true;
+  update(row_obj) {
+
+    this.dataSource = this.dataSource.filter((value, key) => {
+      console.log('update1')
+      if (value.id == this.id_no) {
+        value.project_name = this.projectName;
+        console.log('update2')
+      }
+      return true;
     });
     this.id_no = -1;
-    }
+  }
   selectstore(data) {
     console.log(data);
     this.router.navigate([data]);
@@ -238,22 +275,25 @@ export class ProjectRepositoryComponent implements OnInit {
   }
   searchValue(value: any): void {
     let searchId: string = this.searchText.toLowerCase();
-    this.repositorydata = this.repodata.filter(function(val, ind, arr){
+    this.repositorydata = this.repodata.filter(function (val, ind, arr) {
       var status = (
-        ( val.project_name !== undefined && val.project_name !== null && val.project_name.toLowerCase().indexOf(searchId) !== -1 ));
-        return status;
+        (val.project_name !== undefined && val.project_name !== null && val.project_name.toLowerCase().indexOf(searchId) !== -1));
+      return status;
     });
   }
-  delete(){
+  delete() {
     console.log(this.index);
-    if(this.indexarray.length == 1){ 
-    this.repodata.splice(this.index, 1);
-    this.indexarray.pop();
-    }else if(this.indexarray.length > 1){
-    for(let i=0;i<this.indexarray.length;i++){
-      this.repodata.splice(this.indexarray[i], 1);
-  }
-    this.indexarray = [];
-  }
+    if (this.indexarray.length == 1) {
+      this.repodata.splice(this.index, 1);
+      this.indexarray.pop();
+    } else if (this.indexarray.length > 1) {
+      for (let i = 0; i < this.indexarray.length; i++) {
+        console.log(this.indexarray[i]);
+        // console.log(this.array= this.checkedarray.splice(this.index,1));
+        this.repodata.splice(this.checkedarray[i], 1);
+        // delete this.repodata[this.indexarray[i]];
+      }
+      this.indexarray = [];
+    }
   }
 }

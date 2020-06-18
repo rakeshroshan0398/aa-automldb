@@ -1,11 +1,9 @@
 .background{
-  background: white !important;
-  color: blue;
+  background: #4646ad !important;
+  color: white;
   font-weight: bolder;
 }
 .cardsize{
-  height:70px;
-  background-color: blueviolet;
 }
 .projectrepo{
   margin-top: 15px;
@@ -22,17 +20,16 @@
   margin-top:22px;
 }
 
-h3 {
-  text-align: center !important;
-  position: relative;
-  left : 506px;
+h4 {
+  margin-top: 2px;
   font-weight: bolder;
+}
+.login{
+  text-align: center;
 }
 
 @media (max-width:767px) {
-  h3 {
-    text-align: center !important;
-    position: relative;
-    left : 0px;
-  }
+  // h3 {
+  //   left : 0px;
+  // }
  }

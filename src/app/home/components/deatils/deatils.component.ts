@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild , ViewChildren , QueryList , AfterViewInit} from '@angular/core';
+import { TabsetComponent, TabDirective } from 'ngx-bootstrap/tabs';
 
 @Component({
   selector: 'app-deatils',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./deatils.component.scss']
 })
 export class DeatilsComponent implements OnInit {
+  disableSwitching: boolean;
+  @ViewChild('tabset') tabset: TabsetComponent;
   projectdata =[
     {"name":"Type","ID":"numeric","age":"string","education":"string"},
     {"name":"Type","ID":"numeric","age":"string","education":"string"},
@@ -20,5 +23,11 @@ export class DeatilsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  ngAfterViewInit(){
+    console.log(this.tabset.tabs);
+  }
 
+  goto(id){
+    this.tabset.tabs[id].active = true;
+  }
 }

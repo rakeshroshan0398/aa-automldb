@@ -2,8 +2,8 @@
   <a href="#" class="navbar-brand">
       <img src="assets/images/affine-logo.svg" class="mb-2" height="40"  width="140" alt="affine">
   </a>
-<div class="text-center">
-<h3 class="text-center">AUTOML</h3>
+<div>
+<h4 class="login">AutoML</h4>
 </div>
   <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
@@ -19,16 +19,14 @@
 </nav>
 
 <!-- Project Repositry -->
-  <section class="container-fluid">
-    <div class="card cardsize">
+  <section class="container">
       <div class="row">
-          <div class="col-md-3 offset-md-1 projectrepo" routerLink="/project-repository">
+          <div class="col-md-6 projectrepo" routerLink="/project-repository">
           Experiment:{{myinputMsg}}
           </div>
           <div class="col-md-3 offset-md-1 projectrepo" rouetLink="/project-repository" *ngIf="datamessage">
             Data-Set-Path:{{dataMsg}}
             </div>
-    
-        </div>            
-  </div>
+        </div>  
+        <hr>          
 </section>

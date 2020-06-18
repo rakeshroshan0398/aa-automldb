@@ -19,6 +19,16 @@ iframe {
 .ngxtab {
   cursor: pointer;
 }
-ngx-tab {
-  text-decoration: none;
+ngx-tabset  ul {
+  list-style: none !important;
 }
+.card{
+  margin-top:10px;
+  border-radius: 24px;
+}
+.heading{
+margin-top: 10px;
+margin-left: 10px;
+}
+
+

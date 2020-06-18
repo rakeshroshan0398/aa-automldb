@@ -3,12 +3,13 @@
     margin-top:5px;
   }
   .sidenav{
-  font-size: 20px;
-  margin-left: 10px;
-  cursor: pointer;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
   }
-  .aboutnav{
-    font-size: 20px;
-    margin-left: 10px; 
-    margin-top: 287px;
+  .fa-check-circle{
+    margin-top:5px;
+  }
+  .active{
+    color:blue;
   }

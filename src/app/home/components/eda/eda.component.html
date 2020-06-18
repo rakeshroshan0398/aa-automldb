@@ -1,75 +1,65 @@
 <div class="card mt-4">
-<h3>EDA</h3>
-<div class="row">
+    <h3>EDA</h3>
+    <div class="row">
         <div class="col-md-3 data">
             <!-- <select class="form-control selecttag" name="store" required>
                 <option>Select Feature</option>
               </select> -->
-              <ng-multiselect-dropdown
-             [settings]="dropdownSettings"
-             [data]="dropdownList"
-             (onSelect)="onItemSelect($event)"
-             (onSelectAll)="onSelectAll($event)"
-             (onDeSelect)="onDeSelect($event)"
-             (onDeSelectAll)="onDeSelectAll($event)"
-             >
-             </ng-multiselect-dropdown>
+            <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="dropdownList"
+                (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelect)="onDeSelect($event)"
+                (onDeSelectAll)="onDeSelectAll($event)">
+            </ng-multiselect-dropdown>
         </div>
-              <br>
-              <div class="col-md-3">
-              <select class="form-control selecttag" name="store" (change)="selectTechnique($event.target.value)" required>
+        <br>
+        <div class="col-md-3">
+            <select class="form-control selecttag" name="store" (change)="selectTechnique($event.target.value)"
+                required>
                 <option>Select Technique</option>
                 <option *ngFor="let tech of array">{{tech.chart}}</option>
-              </select>
+            </select>
         </div>
         <div class="col-md-4">
-              <button class="btn btn-primary col-md-5" (click)="Submit()">Submit</button>&nbsp;
-              <button class="btn btn-primary col-md-5">Export</button>
+            <button class="btn btn-primary col-md-5" (click)="Submit()">Submit</button>&nbsp;
+            <button class="btn btn-primary col-md-5">Export</button>
         </div>
-</div>
-<div class="row">
-    <div class="col-md-6 offset-md-2">
-<highcharts-chart
-   [Highcharts] = "highcharts" 
-   [options] = "chartOptions1" 
-   style = "width: 100%; height: 400px; display: block;" *ngIf="submittedtecnique === 'Univarate'">
-</highcharts-chart>
-</div>
-<!-- <div class="col-md-4">
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-2">
+            <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions1"
+                style="width: 100%; height: 400px; display: block;" *ngIf="submittedtecnique === 'Univarate'">
+            </highcharts-chart>
+        </div>
+        <!-- <div class="col-md-4">
     <button class="btn btn-primary col-md-6 gobutton" routerLink="/EDA-Univarate">Go</button>
 </div> -->
-</div>
+    </div>
 
 
-<div class="row">
-    <div class="col-md-6 offset-md-2">
-        <highcharts-chart
-        [Highcharts] = "highcharts" 
-        [options] = "chartOptions" 
-        style = "width: 100%; height: 400px; display: block;"   *ngIf="submittedtecnique === 'Biviarate'">
-     </highcharts-chart>
-</div>
-<!-- <div class="col-md-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-2">
+            <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions"
+                style="width: 100%; height: 400px; display: block;" *ngIf="submittedtecnique === 'Biviarate'">
+            </highcharts-chart>
+        </div>
+        <!-- <div class="col-md-4">
     <button class="btn btn-primary col-md-6 gobutton" routerLink="/EDA-Bivaraiate">Go</button>
 </div> -->
-</div>
+    </div>
 
 
-<div class="row">
-    <div class="col-md-6 offset-md-2">
-        <highcharts-chart
-        [Highcharts] = "highcharts" 
-        [options] = "chartOptions2" 
-        style = "width: 100%; height: 400px; display: block;" *ngIf="submittedtecnique === 'Multivarate'">
-     </highcharts-chart>
-</div>
-<!-- <div class="col-md-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-2">
+            <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions2"
+                style="width: 100%; height: 400px; display: block;" *ngIf="submittedtecnique === 'Multivarate'">
+            </highcharts-chart>
+        </div>
+        <!-- <div class="col-md-4">
     <button class="btn btn-primary col-md-6 gobutton" routerLink="/EDA-Multivariate">Go</button>
 </div> -->
-</div>
+    </div>
 
 
-<!-- <div class="row">
+    <!-- <div class="row">
     <div class="col-md-4 offset-md-4">
         <h4>Pandas Profiling</h4>
 </div>
