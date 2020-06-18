@@ -3,13 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { ProjectRepositoryRoutingModule } from './project-repository-routing.module';
 import { ProjectRepositoryComponent } from './project-repository.component';
-
+import { HeaderComponent } from '../header/header.component'
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 @NgModule({
-  declarations: [ProjectRepositoryComponent],
+  declarations: [ProjectRepositoryComponent,
+    HeaderComponent
+  ],
   imports: [
     CommonModule,
-    ProjectRepositoryRoutingModule
-  ]
+    ProjectRepositoryRoutingModule,
+    FormsModule
+  ],
+  exports: [
+    HeaderComponent
+  ],
 })
 export class ProjectRepositoryModule { }

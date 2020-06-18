@@ -1,28 +1,108 @@
-
-.cardsize{
-    // border:1px solid black;
-    height:70px;
+.cardsize {
+  // border:1px solid black;
+  height: 70px;
 }
-.projectrepo{
-    margin-top: 15px;
-    font-size: 24px;
-    font-weight: 700;
+.card{
+  margin-top:10px;
 }
-.icons{
-    margin-left: 65px;
+.projectrepo {
+  margin-top: 15px;
+  font-size: 24px;
+  font-weight: 700;
 }
-.repo{
-    margin-left: 10px;
+.icons {
+  margin-left: 65px;
 }
-.sidenav{
-font-size: 20px;
-margin-left: 10px;
+.repo {
+  margin-left: 10px;
 }
-.aboutnav{
-    font-size: 20px;
-    margin-left: 10px; 
-    margin-top: 287px;
+.sidenav {
+  font-size: 20px;
+  margin-left: 10px;
 }
-.iconssize{
-    margin-top:22px;
+.aboutnav {
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 287px;
+}
+.iconssize {
+  margin-top: 22px;
+}
+.icons {
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+.search {
+  margin-top: 16px;
+}
+.projectname{
+    cursor: pointer;
+}
+.close{
+    margin-top: -27px;
+    color: red;
+}
+table{
+    margin-top:20px;
+}
+.form{
+    border:2px solid blue;
+}
+.icon{
+    margin-top:20px;
+}
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    background-color: lightgray;
+  }
+  
+  p {
+    margin: 10px 0;
+    font-size: 11px;
+    text-align: right;
+  }
+  .plusbutton{
+    border-radius: 13px;
+    background: #4646ad !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 10px;
+    color:white;
+    border:#4646ad !important;
+  }
+  .input-group-append{
+    margin-left: -40px !important;
+  }
+  .search{
+    margin-top: 1px;
+    border-radius:14px;
+  }
+  .copy{
+    margin-left: -22px;
+  }
+  .fa-clone{
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 15px;
+    background-color: #36adde;
+    // color:white;
+    border:  #36adde;
+    }
+.fa-trash{
+    background-color: red;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left: 4px;
+    border-radius: 15px;
+    // color:white;
+    border: red;
 }

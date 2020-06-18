@@ -1,0 +1,74 @@
+<div class="card mt-4">
+    <h2>Feature Transformation</h2>
+    <div class="row">
+        <div class="col-md-11">
+            <table class="table table-bordered table-striped cus-table aa-table table1">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>List of features</th>
+                        <th>Type</th>
+                        <th>Default Transformation</th>
+                        <th>Custom Transformation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of featuredata">
+                        <td>{{item.features}}</td>
+                        <td>{{item.Type}}</td>
+                        <td>{{item.default_transformation}}</td>
+                        <td>{{item.custom_transformation}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="progress" style="height:10px">
+                <div class="progress-bar" style="width:40%;height:10px"></div>
+            </div>
+            <label>Time Taken</label>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary col-md-12">GO</button>
+        </div>
+    </div>
+    <!-- Interaction Feature -->
+    <h2>Create Interaction Features</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <input type="radio" id="default" name="feature" value="default" class="radio">
+            <label for="default" class="label">Default</label><br>
+            <input type="radio" id="custom" name="feature" value="custom" class="radio customradio">
+            <label for="custom" class="label">Custom</label><br>
+        </div>
+        <div class="col-md-4">
+            <select class="form-control selecttag" name="store">
+                <option>Select Combination</option>
+            </select>
+        </div>
+        <div class="col-md-2 offset-md-2">
+            <button class="btn btn-primary col-md-12">GO</button>
+            <br>
+        </div>
+    </div>
+    <!-- Feature Selection -->
+    <h2>Feature Selection</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <input type="radio" id="default" name="feature" value="default" class="radio">
+            <label for="default" class="label">Default</label><br>
+            <input type="radio" id="custom" name="feature" value="custom" class="radio customradio">
+            <label for="custom" class="label">Custom</label><br>
+        </div>
+        <div class="col-md-4">
+            <select class="form-control selecttag" name="store">
+                <option>Select Technique</option>
+            </select>
+        </div>
+        <div class="col-md-2 offset-md-2">
+            <button class="btn btn-primary col-md-12">GO</button>
+            <br>
+        </div>
+    </div>
+</div>
