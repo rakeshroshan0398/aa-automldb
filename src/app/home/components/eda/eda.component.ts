@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'angular-highcharts';
 import * as Highcharts from 'highcharts';
 import { IDropdownSettings } from 'ng-multiselect-dropdown/public_api';
+declare var $: any;
 
 @Component({
   selector: 'app-eda',
@@ -11,7 +12,7 @@ import { IDropdownSettings } from 'ng-multiselect-dropdown/public_api';
 export class EDAComponent implements OnInit {
   piecharttab = false;
 highcharts = Highcharts;
-chartOptions1 = {   
+public chartOptions1:any = {   
   chart: {
     renderTo: 'container',
     type: 'column'
@@ -67,8 +68,8 @@ series: [{
 }]
 };
 
-
-chartOptions = {   
+// Line Plot
+public chartOptions: any = {   
    chart: {
       type: "spline"
    },
@@ -101,7 +102,7 @@ chartOptions = {
   ]
 }
 
-chartOptions2 = {   
+public chartOptions2:any = {   
   chart : {
      plotBorderWidth: null,
      plotShadow: false
@@ -144,6 +145,159 @@ chartOptions2 = {
      ]
   }]
 };
+// Scatter Chart
+
+public ScatterChart:any = {         
+   title : {
+      text: 'Scatter plot'   
+   },      
+   series : [{
+      type: 'scatter',
+      zoomType:'xy',
+      name: 'Browser share',
+      data: [ 1, 1.5, 2.8, 3.5, 3.9, 4.2 ]
+   }]
+};
+
+public Histogram:any = {
+   chart: {
+       renderTo: 'container',
+       type: 'column'
+   },
+   title : {
+      text: 'Histogram'   
+   },
+   xAxis: {
+       categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+   },
+   
+   plotOptions: {
+       column: {
+           groupPadding: 0,
+           pointPadding: 0,
+           borderWidth: 0
+       }
+   },
+
+   series: [{
+       data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+   }]
+
+}
+
+public BoxPlotChart:any = {
+
+       chartype :{
+          type: 'boxplot'
+      },
+       chartitle : {
+          text: 'Highcharts Box Plot Example'
+      },
+       chartlegend : {
+          enabled: false
+      },
+       chartxaxis : {
+          categories: ['1', '2', '3', '4', '5'],
+          title: {
+              text: 'Experiment No.'
+          }
+      },
+       chartyaxis : {
+          title: {
+              text: 'Observations'
+          },
+          plotLines: [{
+              value: 932,
+              color: 'red',
+              width: 1,
+              label: {
+                  text: 'Theoretical mean: 932',
+                  align: 'center',
+                  style: {
+                      color: 'gray'
+                  }
+              }
+          }]
+      },
+       chartplotoptions : {
+          series: {
+              pointStart: 0,
+              pointInterval: 45
+          },
+          column: {
+              pointPadding: 0,
+              groupPadding: 0
+          }
+      },
+       chartseries : [{
+          name: 'Observations',
+          data: [
+              [760, 801, 848, 895, 965],
+              [733, 853, 939, 980, 1080],
+              [714, 762, 817, 870, 918],
+              [724, 802, 806, 871, 950],
+              [834, 836, 864, 882, 910]
+          ],
+          tooltip: {
+              headerFormat: '<em>Experiment No {point.key}</em><br/>'
+          }
+      }, {
+          name: 'Outlier',
+          color: Highcharts.getOptions().colors[0],
+          type: 'scatter',
+          data: [ // x, y positions where 0 is the first category
+              [0, 644],
+              [4, 718],
+              [4, 951],
+              [4, 969]
+          ],
+          marker: {
+              fillColor: 'white',
+              lineWidth: 1,
+              lineColor: Highcharts.getOptions().colors[0]
+          },
+          tooltip: {
+              pointFormat: 'Observation: {point.y}'
+          }
+      }]
+}
+// Stacked chart
+public StackedChart:any = {
+   chart: {
+       type: 'bar'
+   },
+   title: {
+       text: 'Stacked bar chart'
+   },
+   xAxis: {
+       categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+   },
+   yAxis: {
+       min: 0,
+       title: {
+           text: 'Total fruit consumption'
+       }
+   },
+   legend: {
+       reversed: true
+   },
+   plotOptions: {
+       series: {
+           stacking: 'normal'
+       }
+   },
+   series: [{
+       name: 'John',
+       data: [5, 3, 4, 7, 2]
+   }, {
+       name: 'Jane',
+       data: [2, 2, 3, 2, 1]
+   }, {
+       name: 'Joe',
+       data: [3, 4, 4, 2, 5]
+   }]
+}
+
 //   chart = new Chart({
 //     chart : {
 //       plotBorderWidth: null,
@@ -187,10 +341,23 @@ chartOptions2 = {
 // });
 dropdownSettings = {};
 dropdownList = [];
+// technique = [
+//   {id:"1","chart":"Univarate"},
+//   {id:"2","chart":"Biviarate"},
+//   {id:"3","chart":"Multivarate"}
+// ]
 technique = [
-  {id:"1","chart":"Univarate"},
-  {id:"2","chart":"Biviarate"},
-  {id:"3","chart":"Multivarate"}
+   {id:"1","chart":"Pie Chart"},
+   {id:"2","chart":"Bar Chart"},
+   {id:"3","chart":"Histogram"},
+   {id:"4","chart":"Box Plot"},
+   {id:"5","chart":"Scatter Plot"},
+   {id:"6","chart":"Bar Chart"},
+   {id:"7","chart":"Histogram"},
+   {id:"8","chart":"Box Plot"},
+   {id:"9","chart":"Stacked Chart"},
+   {id:"10","chart":"Line Plot"},
+   {id:"11","chart":"Swarm Plot"},
 ]
 array = [];
 selectedArray = [];
@@ -219,6 +386,30 @@ submittedtecnique:any;
       allowSearchFilter: true
     };
   }
+  loadPieChart(){
+   Highcharts.chart('container', this.chartOptions2);
+}
+  loadBarchart(){
+   Highcharts.chart('container', this.chartOptions1);
+  }
+  loadHistogram(){
+   Highcharts.chart('container', this.Histogram);
+  }
+  loadBoxPlot(){
+   Highcharts.chart('container', this.BoxPlotChart);
+  }
+  loadScatterPlot(){
+   Highcharts.chart('container', this.ScatterChart);
+  }
+  loadStackedPlot(){
+   Highcharts.chart('container', this.StackedChart);
+  }
+  loadLinePlot(){
+   Highcharts.chart('container', this.chartOptions);
+  }
+ loadSwarmPlot(){
+
+ }
   onItemSelect(item: any) {
     console.log(this.technique)
     console.log(item);
@@ -226,15 +417,21 @@ submittedtecnique:any;
     console.log(this.selectedFeature);
     console.log(this.selectedFeature.length);
     if(this.selectedFeature.length == 1){
-      this.array.pop();
-      this.array.push(this.technique[0]);
+      this.array = [];
+      this.array.push(this.technique[0],
+         this.technique[1],this.technique[2],
+                      this.technique[3]
+                      );
       console.log(this.array);
     }else if(this.selectedFeature.length == 2){
-      this.array.pop();
-      this.array.push(this.technique[1]);
+      this.array = [];
+      this.array.push(this.technique[4],
+         this.technique[5],this.technique[6],this.technique[7],
+                     this.technique[8],this.technique[9],this.technique[10]
+                     );
     }else if(this.selectedFeature.length > 2){
-      this.array.pop();
-      this.array.push(this.technique[2]);
+      this.array = [];
+      // this.array.push(this.technique[2]);
     }
     console.log(this.array);
   }
@@ -268,10 +465,18 @@ submittedtecnique:any;
      console.log(this.array);
      console.log(this.array);
      if(this.selectedFeature.length == 1){
-      this.array.push(this.technique[0]);
-     }else if(this.selectedFeature.length == 2){
-      this.array.push(this.technique[1]);
-     }else if(this.selectedFeature.length > 2){
+      this.array = [];
+      this.array.push(this.technique[0],
+         this.technique[1],this.technique[2],
+                      this.technique[3]
+                      );
+      }else if(this.selectedFeature.length == 2){
+         this.array = [];
+         this.array.push(this.technique[4],
+            this.technique[5],this.technique[6],this.technique[7],
+                        this.technique[8],this.technique[9],this.technique[10]
+                        );
+      }else if(this.selectedFeature.length > 2){
       this.array.push(this.technique[2]);
      }
   //  this.array.pop();
@@ -288,5 +493,24 @@ submittedtecnique:any;
     this.submittedtecnique = this.selectedtechnique;
     console.log(this.submittedtecnique);
     this.submitteddata = this.array;
-   }
+    if(this.selectedtechnique == "Bar Chart"){
+    console.log(this.selectedtechnique)
+    this.loadBarchart();
+   //  Highcharts.chart('container', this.chartOptions1);
+   }else if(this.selectedtechnique == "Pie Chart"){
+     this.loadPieChart()
+   }else if(this.selectedtechnique == "Histogram"){
+     this.loadHistogram();
+   }else if(this.selectedtechnique == "Box Plot"){
+     this.loadBoxPlot();
+   }else if(this.selectedtechnique == "Scatter Plot"){
+      this.loadScatterPlot();
+    }else if(this.selectedtechnique == "Stacked Chart"){
+      this.loadStackedPlot();
+    }else if(this.selectedtechnique == "Line Plot"){
+      this.loadLinePlot();
+    }else if(this.selectedtechnique == "Swarm Plot"){
+      this.loadSwarmPlot();
+    }
+}
 }
