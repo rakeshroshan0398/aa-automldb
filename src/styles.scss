@@ -8,3 +8,21 @@ body {
 .clickable {
   cursor: pointer;
 }
+app-deatils tabset ul li{
+  box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.2);
+  background-color: darkblue;
+  color:white;
+}
+app-deatils tabset ul li a{
+  color:white;
+}
+app-deatils tabset ul li:nth-child(2){
+  margin-left:10px;
+  border-radius: 20px;
+  }
+  app-deatils tabset ul li{
+    border-radius: 20px;
+    }
+  app-deatils tabset ul{
+    margin-left:10px;
+  }

@@ -1,9 +1,47 @@
-<tabset #tabset class="tabset">
+<ul class="nav nav-tabs">
+  <li class="nav-item ">
+    <a class="nav-link active" (click)="dataset()">Dataset-Summary</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="Pandas()">Pandas-Profilling</a>
+  </li>
+</ul>
+<div>
+<div class="sidebar" *ngIf="dataData">
+  <div class="card data">
+    <h4 class="heading">Data-Set</h4>
+    <hr>
+    <table class="table table-bordered table-striped cus-table aa-table table1">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Name</th>
+          <th>ID</th>
+          <th>Age</th>
+          <th>Education</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of projectdata">
+          <td>{{item.name}}</td>
+          <td>{{item.ID}}</td>
+          <td>{{item.age}}</td>
+          <td>{{item.education}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- </div> -->
+</div>
+
+<div class="card data" *ngIf="profileData">
+  <iframe src=""></iframe>
+  </div>
+</div>
+<!-- <tabset #tabset class="tabset">
   <tab heading="Dataset-Summary">
-    <div class="sidebar">
+    <div class="sidebar mt-4">
       <div class="card data">
         <h4 class="heading">Data-Set</h4>
-        <hr>
         <table class="table table-bordered table-striped cus-table aa-table table1">
           <thead class="thead-inverse">
             <tr>
@@ -23,11 +61,11 @@
           </tbody>
         </table>
       </div>
-      <!-- </div> -->
     </div>
   </tab>
-
   <tab heading="Pandas-Profilling">
+    <div class="card data mt-4">
     <iframe src=""></iframe>
+    </div>
   </tab>
-</tabset>
+</tabset> -->

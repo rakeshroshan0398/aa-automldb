@@ -57,6 +57,7 @@ export class ProjectRepositoryComponent implements OnInit {
   namearray = [];
   array = [];
   objectIndex: any;
+  Experiment_Type:any;
   constructor(public router: Router
   ) { }
   dataSource = this.repodata;
@@ -73,7 +74,7 @@ export class ProjectRepositoryComponent implements OnInit {
   toggle(data, event) {
     this.id = data.id;
     this.projectname = data.project_name;
-
+    this.Experiment_Type = data.Experiment_Type;
     this.datasetpath = data.DatasetPath;
     console.log(this.datasetpath);
     console.log('data', data);
@@ -89,6 +90,7 @@ export class ProjectRepositoryComponent implements OnInit {
         id: this.id,
         project_name: this.projectname + '_copy',
         DatasetPath: this.datasetpath,
+        Experiment_Type: this.Experiment_Type,
         label: "a",
         selected: false,
       }
@@ -178,6 +180,7 @@ export class ProjectRepositoryComponent implements OnInit {
           id: this.id,
           project_name: this.repodata[i].project_name + '_copy',
           DatasetPath: this.repodata[i].DatasetPath,
+          Experiment_Type: this.repodata[i].Experiment_Type,
           label: "a",
           selected: false,
         }

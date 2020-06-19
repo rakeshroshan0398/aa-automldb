@@ -74,12 +74,13 @@
                                     <input type="file" class="custom-file-input" id="customFile" name="filename" >
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
+                                <label for="datafile">Experiment Type</label><br>
                                 <select class="form-control selecttag" name="Experiment_Type"
                                  (change)="selectstore($event.target.value)" [(ngModel)]="model.Experiment_Type" #Experiment_Type="ngModel" required>
                                  <option>Select Action</option>
                                  <option>Regression</option>
                                  <option>Classification</option>
-                        </select>
+                        </select><br>
                                 <div class="form-group">
                                     <button class="btn btn-primary">Submit</button>
                                 </div>

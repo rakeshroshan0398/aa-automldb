@@ -18,7 +18,7 @@ public chartOptions1:any = {
     type: 'column'
 },
 title: {
-    text: 'Univariated Analysis'
+    text: 'Bar Chart'
 },
 subtitle: {
     text: ''
@@ -108,7 +108,7 @@ public chartOptions2:any = {
      plotShadow: false
   },
   title : {
-     text: 'Multivariate Analysis'   
+     text: 'Pie Chart'   
   },
   tooltip : {
      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -186,80 +186,34 @@ public Histogram:any = {
 }
 
 public BoxPlotChart:any = {
+   chart: {
+      renderTo: 'container',
+      type: 'column'
+  },
+  title : {
+     text: 'Box Plot'   
+  },
+  xAxis: {
+      categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+  },
+  
+  plotOptions: {
+      column: {
+          groupPadding: 0,
+          pointPadding: 0,
+          borderWidth: 0
+      }
+  },
 
-       chartype :{
-          type: 'boxplot'
-      },
-       chartitle : {
-          text: 'Highcharts Box Plot Example'
-      },
-       chartlegend : {
-          enabled: false
-      },
-       chartxaxis : {
-          categories: ['1', '2', '3', '4', '5'],
-          title: {
-              text: 'Experiment No.'
-          }
-      },
-       chartyaxis : {
-          title: {
-              text: 'Observations'
-          },
-          plotLines: [{
-              value: 932,
-              color: 'red',
-              width: 1,
-              label: {
-                  text: 'Theoretical mean: 932',
-                  align: 'center',
-                  style: {
-                      color: 'gray'
-                  }
-              }
-          }]
-      },
-       chartplotoptions : {
-          series: {
-              pointStart: 0,
-              pointInterval: 45
-          },
-          column: {
-              pointPadding: 0,
-              groupPadding: 0
-          }
-      },
-       chartseries : [{
-          name: 'Observations',
-          data: [
-              [760, 801, 848, 895, 965],
-              [733, 853, 939, 980, 1080],
-              [714, 762, 817, 870, 918],
-              [724, 802, 806, 871, 950],
-              [834, 836, 864, 882, 910]
-          ],
-          tooltip: {
-              headerFormat: '<em>Experiment No {point.key}</em><br/>'
-          }
-      }, {
-          name: 'Outlier',
-          color: Highcharts.getOptions().colors[0],
-          type: 'scatter',
-          data: [ // x, y positions where 0 is the first category
-              [0, 644],
-              [4, 718],
-              [4, 951],
-              [4, 969]
-          ],
-          marker: {
-              fillColor: 'white',
-              lineWidth: 1,
-              lineColor: Highcharts.getOptions().colors[0]
-          },
-          tooltip: {
-              pointFormat: 'Observation: {point.y}'
-          }
-      }]
+  series: [{
+   name: 'Observations',
+   data: [
+       [760, 801, 848, 895, 965],
+       [733, 853, 939, 980, 1080],
+       [714, 762, 817, 870, 918],
+       [724, 802, 806, 871, 950],
+       [834, 836, 864, 882, 910]
+   ],  }]
 }
 // Stacked chart
 public StackedChart:any = {
@@ -297,7 +251,56 @@ public StackedChart:any = {
        data: [3, 4, 4, 2, 5]
    }]
 }
-
+public Swarm:any = {
+   chart: {
+       renderTo: 'container',
+       type: 'spline',
+       marginRight: 130,
+       marginBottom: 25
+   },
+   title: {
+       text: 'Academy Award Nominations',
+       x: -20 //center
+   },
+   subtitle: {
+       text: 'From 1920s to 2000s',
+       x: -20
+   },
+   xAxis: {
+       categories: ['1920s', '1930s', '1940s', '1950s', '1960s', '1970s',
+           '1980s', '1990s', '2000s']
+   },
+   yAxis: {
+       title: {
+           text: 'nominations'
+       },
+       min: 0
+   },
+   tooltip: {
+       formatter: function() {
+           return 'Movies containing the word: <b>'+ this.series.name +'</b><br/>'+
+               this.x +': '+ this.y +' nominations';
+       }
+   },
+   legend: {
+       layout: 'vertical',
+       align: 'right',
+       verticalAlign: 'top',
+       x: -10,
+       y: 100,
+       borderWidth: 0
+   },
+   series: [{
+       name: 'cat',
+       data: [5,10,20,6,8,12,3,1,2]
+   }, {
+       name: 'dog',
+       data: [0,2,5,15,3,5,22,4,15]
+   }, {
+       name: 'dog AND cat',
+       data: [0,0,1,3,0,5,4,0,1]
+   }]
+}
 //   chart = new Chart({
 //     chart : {
 //       plotBorderWidth: null,
@@ -408,7 +411,7 @@ submittedtecnique:any;
    Highcharts.chart('container', this.chartOptions);
   }
  loadSwarmPlot(){
-
+   Highcharts.chart('container', this.Swarm);
  }
   onItemSelect(item: any) {
     console.log(this.technique)
