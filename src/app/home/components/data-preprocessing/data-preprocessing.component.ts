@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+// import { DymamicColumn } from './data.model';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -7,81 +9,91 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./data-preprocessing.component.scss']
 })
 export class DataPreprocessingComponent implements OnInit {
-  featureData =[
-    {"id":1,"feature_name":"Name","values":"200","rows":"10000"},
-    {"id":2,"feature_name":"Age","values":"267","rows":"10000"},
-    {"id":3,"feature_name":"Gender","values":"100","rows":"10000"},
-  ]
 
-  quantileData =[
-    {"id":1,"Quantile":"5","ticket_price":"200","surival_property":"100.00"},
-    {"id":2,"Quantile":"50","ticket_price":"267","surival_property":"100.00"},
-    {"id":3,"Quantile":"90","ticket_price":"100","surival_property":"100.00"},
-  ]
-  highcharts = Highcharts;
-  chartOptions1 = {   
-    chart: {
-      renderTo: 'container',
-      type: 'column'
-  },
-  title: {
-      text: ''
-  },
-  subtitle: {
-      text: ''
-  },
-  xAxis: {
-      categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
-      title: {
-          text: null
-      }
-  },
-  yAxis: {
-      min: 0,
-      title: {
-          text: 'Population (millions)',
-          align: 'high'
-      },
-      labels: {
-          overflow: 'justify'
-      }
-  },
-  tooltip: {
-      formatter: function() {
-          return ''+
-              this.series.name +': '+ this.y +' millions';
-      }
-  },
-  plotOptions: {
-      bar: {
-          dataLabels: {
-              enabled: true
-          }
-      }
-  },
-  legend: {
-      layout: 'vertical',
-      align: 'right',
-      verticalAlign: 'top',
-      x: -100,
-      y: 100,
-      floating: true,
-      borderWidth: 1,
-      backgroundColor: '#FFFFFF',
-      shadow: true
-  },
-  credits: {
-      enabled: false
-  },
-  series: [{
-      name: 'Year 1800',
-      data: [107, 31, 635, 203, 2]
-  }]
-};
-  
-  constructor() { }
+  dropdownSettings = {
+    singleSelection: false,
+    idField: 'item_id',
+    textField: 'item_text',
+    itemsShowLimit: 3,
+    allowSearchFilter: true,
+    enableCheckAll: false
+
+  };
+
+  dropdownList = [
+    { item_id: 1, item_text: 'Column 1' },
+    { item_id: 2, item_text: 'Column 2' },
+    { item_id: 3, item_text: 'Column 3' },
+  ];
+
+  treatments = [
+    { id: 1, name: 'Change Data Types'},
+    { id: 2, name: 'Remove Null Values'},
+    { id: 3, name: 'Impute Null Values'},
+    { id: 4, name: 'Outlier Treatment'},
+    { id: 5, name: 'Remove Low Variance'},
+    { id: 6, name: 'Encoding'},
+    { id: 7, name: 'Transformation'}
+  ];
+
+  selectedFeatures = [];
+  selectedTreatment: string = '';
+
+  // dynamicFormGroup: FormGroup;
+
+  constructor(
+    // private fb: FormBuilder
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  // createForm() {
+  //     this.dynamicFormGroup = this.fb.group({
+  //         dynamicColumns: this.fb.array([])
+  //     });
+  // }
+  //
+  // get dynamicColumns(): FormArray {
+  //     return this.dynamicFormGroup.get('dynamicColumns') as FormArray;
+  // };
+  //
+  //
+  // addDynamicColumn() {
+  //     this.dynamicColumns.push(this.fb.group(new DymamicColumn()));
+  // }
+  //
+  // removeDynamicColumn(i) {
+  //     this.dynamicColumns.removeAt( i );
+  // }
+
+
+  onDeSelect(item: any) {
+    this.selectedFeatures.push(item);
+    this.validateAndLoadForm();
+  }
+  onItemSelect(item: any) {
+    this.selectedFeatures.push(item);
+    this.validateAndLoadForm();
+  }
+  onSelectAll(items: any) {
+    this.selectedFeatures.push(items);
+    this.validateAndLoadForm();
+  }
+
+  changeTreatment(name){
+    this.selectedTreatment = name;
+    this.validateAndLoadForm();
+  }
+
+  validateAndLoadForm(){
+    if( this.selectedTreatment != "0" && this.selectedFeatures.length ) {
+      this.loadDynamicInputs();
+    }
+  }
+
+  loadDynamicInputs(){
+
   }
 
 }
