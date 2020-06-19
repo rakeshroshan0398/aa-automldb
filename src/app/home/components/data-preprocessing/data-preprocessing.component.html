@@ -1,5 +1,5 @@
-<div class="card">
-  <h3>Data preprocessing</h3>
+<div class="card pad-10">
+  <h3>Data Preprocessing</h3>
   <div class="row">
 
     <form novalidate #f="ngForm" (ngSubmit)="validateAndLoadForm()" class="tab-info tab-content col-12">
@@ -9,7 +9,7 @@
           <label class="col-md-5"> Select a Treatment <span class="pull-right"> : </span> </label>
           <div class="col-md-6">
             <select class="form-control selecttag" name="store" (change)="changeTreatment($event.target.value)" required>
-              <option value="0">Select Treatment</option>
+              <option value="0">Select a Treatment</option>
               <option *ngFor="let t of treatments">{{t.name}}</option>
             </select>
           </div>
@@ -18,7 +18,7 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col-md-5"> Sub Department(s) <span class="pull-right"> : </span> </label>
+          <label class="col-md-5"> Select Features <span class="pull-right"> : </span> </label>
           <div class="col-md-6">
             <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="dropdownList" (onSelect)="onItemSelect($event)" (onDeSelect)="onDeSelect($event)">
             </ng-multiselect-dropdown>
@@ -27,6 +27,64 @@
       </div>
 
     </form>
+
+
+    <form [formGroup]="pastExpForm" (ngSubmit)="validateAndLoadForm()" novalidate class="tab-info tab-content col-12" [hidden]="!hideExperience">
+
+      <div formArrayName="pastWorkExps" class="well well-lg">
+        <div *ngFor="let address of pastWorkExps.controls; let i=index" [formGroupName]="i" >
+          <!-- The repeated work experience template -->
+          <div class="row">
+              <div class="col-md-5">
+                  <div class="form-group">
+                      <div class="row">
+                          <label class="col-md-4"> {{selectedFeatures[i]["item_text"]}} <span class="pull-right"> : </span> </label>
+                          <div class="col-md-8">
+                              <select class="form-control" name="Value" formControlName="Value" *ngIf="isOpt1">
+                                  <option value="Object"> Object </option>
+                                  <option value="Interger"> Integer </option>
+                                  <option value="Float"> Float </option>
+                              </select>
+                              <input type="number" min="0" max="100" class="form-control" name="" formControlName="Threshold" placeholder="Threshold" *ngIf="isOpt2 || isOpt5">
+                              <select class="form-control" name="Value" formControlName="Value" *ngIf="isOpt3">
+                                  <option value="Constant" *ngIf="!isNumeric(i)"> Constant </option>
+                                  <option value="Mode" *ngIf="!isNumeric(i)"> Mode </option>
+                                  <option value="Mean" *ngIf="isNumeric(i)"> Mean </option>
+                                  <option value="Median" *ngIf="isNumeric(i)"> Median </option>
+                                  <option value="Fill Forward" *ngIf="isNumeric(i)"> Fill Forward </option>
+                                  <option value="Fill Backward" *ngIf="isNumeric(i)"> Fill Backward </option>
+                                  <option value="Fill FB Mean" *ngIf="isNumeric(i)"> Fill FB Mean </option>
+                              </select>
+                              <select class="form-control" name="Value" formControlName="Value" *ngIf="isOpt4">
+                                  <option value="Standard Deviation"> Standard Deviation </option>
+                                  <option value="Inter Quantile Range"> Inter Quantile Range </option>
+                              </select>
+                              <select class="form-control" name="Value" formControlName="Value" *ngIf="isOpt6">
+                                  <option value="Dummy Encoding"> Dummy Encoding </option>
+                                  <option value="Ordinal Encoding"> Ordinal Encoding </option>
+                                  <option value="Label Encoding"> Label Encoding </option>
+                              </select>
+                              <select class="form-control" name="Value" formControlName="Value" *ngIf="isOpt7">
+                                  <option value="Zscore"> Zscore </option>
+                                  <option value="MinMax"> MinMax </option>
+                                  <option value="Robust"> Robust </option>
+                                  <option value="MaxAbs"> MaxAbs </option>
+                                  <option value="Quantile"> Quantile </option>
+                                  <option value="Yeo Johnson"> Yeo Johnson </option>
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+
+          <!-- End of the repeated work experience template -->
+        </div>
+
+      </div>
+    </form>
+
 
   </div>
 </div>
