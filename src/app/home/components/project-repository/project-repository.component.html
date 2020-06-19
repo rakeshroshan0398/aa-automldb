@@ -3,7 +3,7 @@
     <div class="sidebar">
         <div class="row">
             <div class="col-md-4">
-                <button class="fa fa-plus-circle plusbutton" style="font-size:18px" (click)="addproject()">&nbsp;&nbsp;Add New Project</button>
+                <button class="fa fa-plus-circle plusbutton" style="font-size:18px" (click)="addproject()">&nbsp;&nbsp;Add Experiment</button>
                 <!-- <div class="input-group icon">
                     <input class="form-control py-2 border-right-0 border" type="search" value="search"
                         [(ngModel)]="searchText" (keyup)="searchValue($event)" placeholder="Search">
@@ -45,13 +45,13 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-6 offset-md-3">
-                            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                            <form name="form" (ngSubmit)="f.form.valid && onSubmit(f.value)" #f="ngForm" novalidate>
                                 <div class="form-group">
-                                    <label for="projectNames">Experiment Name</label>
-                                    <input type="text" class="form-control" name="projectNames"
-                                        [(ngModel)]="model.projectNames" #projectNames="ngModel"
+                                    <label for="project_name">Experiment Name</label>
+                                    <input type="text" class="form-control" name="project_name"
+                                        [(ngModel)]="model.project_name" #project_name="ngModel"
                                          required />
-                                    <div *ngIf="f.submitted && projectNames.invalid" class="invalid-feedback">
+                                    <div *ngIf="f.submitted && project_name.invalid" class="invalid-feedback">
                                         <!-- <div *ngIf="projectNames.errors.required">Project Name is required</div> -->
                                     </div>
                                 </div>
@@ -71,9 +71,15 @@
                                     </div>
                                 </div>
                                 <div class="custom-file mb-3" *ngIf="datapath">
-                                    <input type="file" class="custom-file-input" id="customFile" name="filename">
+                                    <input type="file" class="custom-file-input" id="customFile" name="filename" >
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
+                                <select class="form-control selecttag" name="Experiment_Type"
+                                 (change)="selectstore($event.target.value)" [(ngModel)]="model.Experiment_Type" #Experiment_Type="ngModel" required>
+                                 <option>Select Action</option>
+                                 <option>Regression</option>
+                                 <option>Classification</option>
+                        </select>
                                 <div class="form-group">
                                     <button class="btn btn-primary">Submit</button>
                                 </div>
@@ -89,6 +95,7 @@
                                 (change)="selectAll($event)"></th>
                         <th>Experiment Name</th>
                         <th>Dataset Path</th>
+                        <th>Experiment Type</th>
                         <th>Action</th>
                         <!-- <th *ngIf="routerData">Perform</th> -->
                     </tr>
@@ -109,6 +116,14 @@
                             </div> -->
                         </div></td>
                         <td>{{item.DatasetPath}}</td>
+                        <td> {{item.Experiment_Type}}
+                            <!-- <select class="form-control selecttag" name="store"
+                            (change)="selectstore($event.target.value)" required>
+                            <option>Select Action</option>
+                            <option>Regression</option>
+                            <option>Classification</option>
+                        </select> -->
+                    </td>
                         <td><i class="fa fa-edit accordion-toggle collapsed" id="accordion1" data-toggle="collapse"
                             data-parent="#accordion1" href="#collapseone" style="font-size:24px" (click)="editDetail(viewreceiptmodal,i,item.project_name,item.DatasetPath)" *ngIf="!displayAllDetails(i)"></i>
                             <i *ngIf="displayAllDetails(i)" class="fa fa-times aa-close" (click)="clearDisplayIndex()" title="Close all details"></i>&nbsp;

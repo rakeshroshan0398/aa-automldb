@@ -19,10 +19,10 @@ export class ProjectRepositoryComponent implements OnInit {
   searchText: string = '';
   project_name = [];
   repodata = [
-    { "id": 0, "project_name": "Titanic", "DatasetPath": "/titanic", "label": 'a', "selected": false },
-    { "id": 1, "project_name": "Credit card Defaultor", "DatasetPath": "/titanic", "label": 'a', "selected": false },
-    { "id": 2, "project_name": "Prediction", "DatasetPath": "/titanic", "label": 'a', "selected": false },
-    { "id": 3, "project_name": "Micro", "DatasetPath": "/titanic", "label": 'a', "selected": false },
+    { "id": 0, "project_name": "Titanic", "DatasetPath": "/titanic","Experiment_Type":"Regression","label": 'a', "selected": false },
+    { "id": 1, "project_name": "Credit card Defaultor", "DatasetPath": "/titanic","Experiment_Type":"Classification", "label": 'a', "selected": false },
+    { "id": 2, "project_name": "Prediction", "DatasetPath": "/titanic","Experiment_Type":"Regression", "label": 'a', "selected": false },
+    { "id": 3, "project_name": "Micro", "DatasetPath": "/titanic","Experiment_Type":"Classification", "label": 'a', "selected": false },
   ];
   action = [
     { "id": "1", "name": "Deatils" },
@@ -149,8 +149,19 @@ export class ProjectRepositoryComponent implements OnInit {
       this.datapath = true;
     }
   }
-  onSubmit() {
-
+  onSubmit(model) {
+   console.log(model);
+  let experimentForm = {
+      "id": this.id,
+      "project_name":model.project_name,
+      "DatasetPath":model.Dataset_Path,
+      "Experiment_Type":model.Experiment_Type,
+      "label": 'a', 
+      "selected": false
+  }
+  console.log(experimentForm);
+  this.repodata.push(experimentForm);
+  console.log(this.repodata);
   }
   closeform() {
     this.form = false;
