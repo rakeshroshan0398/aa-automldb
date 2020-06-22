@@ -1,0 +1,78 @@
+<div class="card">
+        <header>Experiment Details</header>
+        <hr>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f.value)" #f="ngForm" novalidate>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group" class="experimenttext">
+                        <label for="project_name" class="experiment">Experiment Name</label>
+                        <input type="text" class="form-control" name="project_name" [(ngModel)]="model.project_name"
+                            #project_name="ngModel" placeholder="Please Enter Input Experiment Name" required />
+                        <div *ngIf="f.submitted && project_name.invalid" class="invalid-feedback">
+                            <!-- <div *ngIf="projectNames.errors.required">Project Name is required</div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group" class="experimentselect">
+                        <label for="datafile" class="experimenttype">Experiment Type</label><br>
+                        <select class="form-control selecttag" name="Experiment_Type"
+                            (change)="selectstore($event.target.value)" [(ngModel)]="model.Experiment_Type"
+                            #Experiment_Type="ngModel" required>
+                            <option>Select Action</option>
+                            <option>Regression</option>
+                            <option>Classification</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+            <label class="radio-inline">
+                <input type="radio" id="dataset" name="data" value="dataset" (change)="changeData($event)">&nbsp;Path
+            </label>
+            <!-- <label for="dataset">&nbsp;Path</label><br> -->
+            <label class="radio-inline radiofile">
+                <input type="radio" id="datafile" name="data" value="datafile" (change)="changeData($event)">&nbsp;File
+            </label>
+            </div>
+            <!-- <label for="datafile">&nbsp;File</label><br> -->
+                <div class="col-md-6" *ngIf="datasetform">
+                    <div class="form-group experimentselect">
+                        <label for="datasetinput" class="dataset">Dataset Path</label>
+                        <input type="text" class="form-control" name="Dataset_Path" [(ngModel)]="model.Dataset_Path"
+                            #Dataset_Path="ngModel" required />
+                        <div *ngIf="f.submitted && Dataset_Path.invalid" class="invalid-feedback">
+                            <div *ngIf="Dataset_Path.errors.required">DataSet Name Input is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" *ngIf="datapath">
+                    <label class="datasetfile">Dataset File</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile" name="filename">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <button class="btn btn-primary">Submit</button>
+            </div> -->
+        </form>
+        <hr class="bottomhorizon">
+        <div class="row">
+            <div class="offset-md-8"></div>
+            <div class="col-md-2 top">
+             <!-- <div class="form-group"> -->
+                <button class="btn btn-secondary skip"><i class="fa fa-fast-forward" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Skip</button>
+            <!-- </div> -->
+            </div>
+            <div class="col-md-2 top">
+                <!-- <div class="form-group"> -->
+                   <button class="btn btn-primary continue" (click)="onSubmit(f.value)"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Continue</button>
+               <!-- </div> -->
+               </div>
+            </div>
+</div>
+<div class="bottom"></div> 

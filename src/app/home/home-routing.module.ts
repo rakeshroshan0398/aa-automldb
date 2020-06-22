@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'project-repository', loadChildren: () => import('./components/project-repository/project-repository.module').then(m => m.ProjectRepositoryModule) },
   { path: '', component: HomeComponent,
     children: [
+      { path: 'add-experiment', loadChildren: () => import('./components/add-experiment/add-experiment.module').then(m => m.AddExperimentModule) },
       { path: 'Deatils', loadChildren: () => import('./components/deatils/deatils.module').then(m => m.DeatilsModule) },
       { path: 'Pandas-profiling', loadChildren: () => import('./components/deatils/pandas-profiling/pandas-profiling.module').then(m => m.PandasProfilingModule) },
       { path: 'Dataset-summary', loadChildren: () => import('./components/deatils/dataset-summary/dataset-summary.module').then(m => m.DatasetSummaryModule) },

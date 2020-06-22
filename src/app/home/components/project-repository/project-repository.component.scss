@@ -4,6 +4,10 @@
 }
 .card{
   margin-top:10px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  cursor:pointer;
+  width: 107%;
 }
 .projectrepo {
   margin-top: 15px;
@@ -61,48 +65,86 @@ footer {
     background-color: lightgray;
   }
   
-  p {
-    margin: 10px 0;
-    font-size: 11px;
-    text-align: right;
-  }
+  // p {
+  //   margin: 10px 0;
+  //   font-size: 11px;
+  //   text-align: right;
+  // }
   .plusbutton{
-    border-radius: 13px;
-    background: #4646ad !important;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    border-radius: 11px;
+    background: #6b6bbb !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-right: 10px;
-    color:white;
-    border:#4646ad !important;
+    color: white;
+    border: #6b6bbb !important;
   }
   .input-group-append{
     margin-left: -40px !important;
   }
   .search{
     margin-top: 1px;
-    border-radius:14px;
+    border-radius: 10px;
   }
   .copy{
     margin-left: -22px;
   }
   .fa-clone{
-    padding-top: 9px;
-    padding-bottom: 9px;
-    padding-right: 10px;
-    padding-left: 10px;
-    border-radius: 15px;
-    background-color: #36adde;
-    // color:white;
-    border:  #36adde;
+    margin-left:5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 9px;
+    padding-left: 9px;
+    border-radius: 7px;
+    background-color: #72d272;
+        // color:white;
+    border:   #72d272;
     }
 .fa-trash{
-    background-color: red;
-    padding-top: 9px;
-    padding-bottom: 9px;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-left: 4px;
-    border-radius: 15px;
+    background-color: #c16969;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 9px;
+    padding-left: 9px;
+    margin-left: 5px;
+    border-radius: 7px;
     // color:white;
-    border: red;
+    border: #c16969;
+}
+
+.label{
+  margin-top:10px;
+  margin-left:10px;
+  font-size:14px;
+  font-weight: bold;
+}
+.label2{
+  margin-left:10px;
+  font-size:14px;
+  font-weight: bold;
+}
+.project_name,.database_path{
+  margin-top: -14px;
+  margin-left: 10px;
+  font-size: 14px;
+}
+.buttons{
+  margin-left:10px;
+  margin-top:30px;
+  margin-bottom: 10px;
+}
+.fa-edit{
+  background: #6b6bbb !important;
+  background: #6b6bbb !important;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 9px;
+  padding-left: 9px;
+  margin-left: 4px;
+  border-radius: 7px;
+  border: #6b6bbb;
+}
+input {
+  border-color: 2px solid black;
+  background: transparent;
 }
