@@ -13,7 +13,70 @@ h3 {
 .data{
     margin-left:10px;
     margin-bottom: 10px;
+    min-height: 0px;
 }
 .card{
 min-height: 588px;
 }
+
+header{
+    margin-left: 20px;
+    margin-top: 13px;
+    margin-bottom: -3px;
+    color:grey;
+}
+form{
+    margin-top: -16px;
+    background-color: #f7f7f7;
+}
+.experimenttype{
+    margin-top:10px;
+    margin-left:10px;
+    font-size: 15px;
+    font-weight: 600; 
+}
+.techniquelabel{
+    margin-top:10px;
+    font-size: 15px;
+    font-weight: 600;  
+}
+.selecttag{
+    border-radius: 8px;
+}
+.applybutton{
+    margin-top:40px;
+    border-radius:8px;
+    background-color: #72d272;
+    border: #72d272;
+}
+.chart{
+    margin-top:10px;
+    background-color: #f7f7f7;
+    margin-left:10px;
+    height:415px;
+    margin-right:10px;
+    margin-bottom: 10px;
+}
+.footerhorizon{
+    margin-top:10px;
+}
+.skip{
+    font-size:14px;
+    margin-left: 34px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 0px;
+    margin-top: -5px;
+}
+.continue{
+    font-size:14px;
+    margin-left:-6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 0px;
+    margin-top: -5px;
+}
+.bottom{
+    margin-bottom: 30px;
+    font-weight: 600;
+ }

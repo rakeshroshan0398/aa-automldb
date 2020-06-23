@@ -26,3 +26,14 @@ app-deatils tabset ul li:nth-child(2){
   app-deatils tabset ul{
     margin-left:10px;
   }
+
+  app-eda div form div div ng-multiselect-dropdown div{
+    margin-left:5px;
+    border-radius: 8px;
+  }
+  app-eda div form div div ng-multiselect-dropdown div div span{
+    border-radius: 8px;
+  }
+  // app-data-preprocessing div div form div div div ng-multiselect-dropdown div div span{
+  //   margin-left:20px;
+  // }

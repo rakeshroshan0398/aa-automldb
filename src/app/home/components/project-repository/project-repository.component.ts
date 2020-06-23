@@ -36,9 +36,7 @@ export class ProjectRepositoryComponent implements OnInit {
   model: any = {};
   form: boolean = false;
   copyform: boolean = false;
-  datavalue: any;
-  datasetform: boolean = false;
-  datapath: boolean = false;
+
   searchbox = false;
   projectchecked: boolean = false;
   id_no: number;
@@ -140,17 +138,7 @@ export class ProjectRepositoryComponent implements OnInit {
     this.form = true;
     this.copyForm = false;
   }
-  changeData(data) {
-    console.log(data.target.value);
-    this.datavalue = data.target.value;
-    if (this.datavalue == "dataset") {
-      this.datasetform = true;
-      this.datapath = false;
-    } else if (this.datavalue == "datafile") {
-      this.datasetform = false;
-      this.datapath = true;
-    }
-  }
+
   onSubmit(model) {
    console.log(model);
   let experimentForm = {
@@ -206,11 +194,11 @@ export class ProjectRepositoryComponent implements OnInit {
   search() {
     this.searchbox = true;
   }
-  editDetail(viewreceiptmodal, id: number, project_name: string, DatasetPath: string) {
+  editDetail( id: number, project_name: string, DatasetPath: string) {
     this.noneditable = false;
     this.copyForm = true;
     this.form = false;
-    console.log(viewreceiptmodal);
+    // console.log(viewreceiptmodal);
     // if(this.projectchecked == false ){
     this.id_no = id;
     this.projectName = project_name;

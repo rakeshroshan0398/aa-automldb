@@ -3,7 +3,7 @@
     <div class="sidebar">
         <div class="row">
             <div class="col-md-4">
-                <button class="fa fa-plus-circle plusbutton" style="font-size:18px" (click)="addproject()">&nbsp;&nbsp;Add Experiment</button>
+                <button class="plusbutton" style="font-size:14px" routerLink ="/add-experiment" (click)="addproject()"><i class="fa fa-plus-circle plusbutton" style="font-size:15px" ></i>Add New Experiment</button>
                 <!-- <div class="input-group icon">
                     <input class="form-control py-2 border-right-0 border" type="search" value="search"
                         [(ngModel)]="searchText" (keyup)="searchValue($event)" placeholder="Search">
@@ -14,82 +14,29 @@
                     </span>
                 </div> -->
             </div>
-            <div class="col-md-6 offset-md-2">
+            <div class="col-md-3 offset-md-5">
                 <div class="row">
-                <div class="input-group col-md-8">
-                    <input class="form-control py-2 border-right-0 border search" type="search" value="search"
+                <div class="input-group col-md-12">
+                    <input class="form-control py-2 border-right-0 border search" type="search" value="Search |"
                         [(ngModel)]="searchText" (keyup)="searchValue($event)" placeholder="Search">
-                    <span class="input-group-append">
+                    <!-- <span class="input-group-append">
                         <button class="btn btn-outline-secondary border-left-0 border" type="button">
                             <i class="fa fa-search"></i>
                         </button>
-                    </span>
+                    </span> -->
                 </div>
-                <div class="col-md-2 copy">
+                <!-- <div class="col-md-2 copy">
                 <button class="fa fa-clone" style="font-size:18px"
                      [disabled]="(project_name.length <= 0) ? 'disabled': null" (click)="copy()">&nbsp;Clone</button>
                 </div>
                 <div class="col-md-2">
                 <button class="fa fa-trash" aria-hidden="true" style="font-size:18px"
                  [disabled]="(project_name.length <= 0) ? 'disabled': null" (click)="delete()">Delete</button>
-                 </div>
+                 </div> -->
                 </div>
                  </div>
         </div>
-        <div class="card">
-            <!-- ADD PROJECT FORM -->
-            <div class="container form col-md-8 offset-md-2" *ngIf="form">
-                <form>
-                    <h4>Add Project</h4>
-                    <button type="button" class="close" data-dismiss="modal" (click)="closeform()">&times;</button>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-6 offset-md-3">
-                            <form name="form" (ngSubmit)="f.form.valid && onSubmit(f.value)" #f="ngForm" novalidate>
-                                <div class="form-group">
-                                    <label for="project_name">Experiment Name</label>
-                                    <input type="text" class="form-control" name="project_name"
-                                        [(ngModel)]="model.project_name" #project_name="ngModel"
-                                         required />
-                                    <div *ngIf="f.submitted && project_name.invalid" class="invalid-feedback">
-                                        <!-- <div *ngIf="projectNames.errors.required">Project Name is required</div> -->
-                                    </div>
-                                </div>
-                                <input type="radio" id="dataset" name="data" value="dataset"
-                                    (change)="changeData($event)">
-                                <label for="dataset">DataSet Path</label><br>
-                                <input type="radio" id="datafile" name="data" value="datafile"
-                                    (change)="changeData($event)">
-                                <label for="datafile">DataSet File</label><br>
-                                <div class="form-group" *ngIf="datasetform">
-                                    <label for="datasetinput">DataSet Path</label>
-                                    <input type="text" class="form-control" name="Dataset_Path"
-                                        [(ngModel)]="model.Dataset_Path" #Dataset_Path="ngModel" required />
-                                    <div *ngIf="f.submitted && Dataset_Path.invalid" class="invalid-feedback">
-                                        <div *ngIf="Dataset_Path.errors.required">DataSet Name Input is required
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="custom-file mb-3" *ngIf="datapath">
-                                    <input type="file" class="custom-file-input" id="customFile" name="filename" >
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
-                                </div>
-                                <label for="datafile">Experiment Type</label><br>
-                                <select class="form-control selecttag" name="Experiment_Type"
-                                 (change)="selectstore($event.target.value)" [(ngModel)]="model.Experiment_Type" #Experiment_Type="ngModel" required>
-                                 <option>Select Action</option>
-                                 <option>Regression</option>
-                                 <option>Classification</option>
-                        </select><br>
-                                <div class="form-group">
-                                    <button class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <table class="table table-bordered table-striped cus-table aa-table table1 col-md-10 offset-md-1">
+            <!-- <table class="table table-bordered table-striped cus-table aa-table table1 col-md-10 offset-md-1">
                 <thead class="thead-inverse">
                     <tr>
                         <th><input type="checkbox" id="vehicle2" name="checkbox" value="Car"
@@ -98,7 +45,6 @@
                         <th>Dataset Path</th>
                         <th>Experiment Type</th>
                         <th>Action</th>
-                        <!-- <th *ngIf="routerData">Perform</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -112,36 +58,42 @@
                             <input type="text" class="form-control" name="projectName"
                                 [(ngModel)]="projectName" required
                                 projectName />
-                            <!-- <div *ngIf="f.submitted && projectName.invalid" class="invalid-feedback">
-                                <div *ngIf="projectName.errors.required">Project Name is required</div>
-                            </div> -->
                         </div></td>
                         <td>{{item.DatasetPath}}</td>
                         <td> {{item.Experiment_Type}}
-                            <!-- <select class="form-control selecttag" name="store"
-                            (change)="selectstore($event.target.value)" required>
-                            <option>Select Action</option>
-                            <option>Regression</option>
-                            <option>Classification</option>
-                        </select> -->
                     </td>
                         <td><i class="fa fa-edit accordion-toggle collapsed" id="accordion1" data-toggle="collapse"
                             data-parent="#accordion1" href="#collapseone" style="font-size:24px" (click)="editDetail(viewreceiptmodal,i,item.project_name,item.DatasetPath)" *ngIf="!displayAllDetails(i)"></i>
                             <i *ngIf="displayAllDetails(i)" class="fa fa-times aa-close" (click)="clearDisplayIndex()" title="Close all details"></i>&nbsp;
                             <button class="btn btn-primary" *ngIf="displayAllDetails(i)" (click)="update(i)">Save</button>
-                            <!-- <select class="form-control selecttag" name="store"
-                                (change)="selectstore($event.target.value)" required>
-                                <option>Select Action</option>
-                                <option *ngFor="let data of action" routerLink="/{{routerData}}">{{data.name}}
-                                </option>
-                            </select> -->
                         </td>
-                        <!-- <td *ngIf="routerData"><button routerLink="/{{routerData}}"
-                                    class="btn btn-primary">Go</button></td> -->
                     </tr>
                 </tbody>
-            </table>
-        </div>
+            </table> -->
+            <div class="row">
+                <div class="col-md-3" *ngFor="let item of repositorydata; let i = index">
+                    <div class="card">
+                        <!-- <input type="checkbox" id="vehicle2" name="checkbox" [checked]="item.selected" value="Car"
+                                (change)="toggle(item,$event)"
+                                > -->
+                        <label class="label">Experiment Name:</label>
+                        <p class="project_name" routerLink="/Deatils">{{item.project_name}}</p>
+                        <label class="label2">Dataset:</label>
+                        <p class="database_path">{{item.DatasetPath}}</p>
+                        <label class="label2">Experiment Type:</label>
+                        <p class="database_path">{{item.Experiment_Type}}</p>
+                        <label class="label2">Status:</label>
+                        <div class="row buttons">
+                            <button class="fa fa-edit accordion-toggle collapsed" id="accordion1" data-toggle="collapse"
+                            data-parent="#accordion1" href="#collapseone" style="font-size:14px" (click)="editDetail(i,item.project_name,item.DatasetPath)" *ngIf="!displayAllDetails(i)"></button>
+                            <button class="fa fa-clone" style="font-size:14px"
+                          [disabled]="(project_name.length <= 0) ? 'disabled': null" (click)="copy()"></button>
+                     <button class="fa fa-trash" aria-hidden="true" style="font-size:14px"
+                       [disabled]="(project_name.length <= 0) ? 'disabled': null" (click)="delete()"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
     <div>
         <!-- <app-header></app-header> -->

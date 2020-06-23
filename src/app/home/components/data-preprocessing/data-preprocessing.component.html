@@ -1,31 +1,38 @@
-<div class="card pad-10">
-  <h3>Data Preprocessing</h3>
-  <div class="row">
+<div class="card">
+    <header>Data Preprocessing</header>
+    <hr>
+  <div class="row form">
 
     <form novalidate #f="ngForm" (ngSubmit)="validateAndLoadForm()" class="tab-info tab-content col-12">
 
       <div class="form-group">
         <div class="row">
-          <label class="col-md-5"> Select a Treatment <span class="pull-right"> : </span> </label>
           <div class="col-md-6">
+            <label class="treatmentlabel"> Select a Treatment </label>
             <select class="form-control selecttag" name="store" (change)="changeTreatment($event.target.value)" required>
               <option value="0">Select a Treatment</option>
               <option *ngFor="let t of treatments">{{t.name}}</option>
             </select>
           </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="row">
-          <label class="col-md-5"> Select Features <span class="pull-right"> : </span> </label>
           <div class="col-md-6">
-            <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="dropdownList" (onSelect)="onItemSelect($event)" (onDeSelect)="onDeSelect($event)">
-            </ng-multiselect-dropdown>
+            <div class="form-group">
+                    <label class="featurelabel"> Select Features </label>
+                    <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="dropdownList" (onSelect)="onItemSelect($event)" (onDeSelect)="onDeSelect($event)">
+                    </ng-multiselect-dropdown>
+              </div>
           </div>
         </div>
       </div>
 
+      <!-- <div class="form-group">
+        <div class="row">
+          <div class="col-md-3">
+            <label class="featurelabel"> Select Features </label>
+            <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="dropdownList" (onSelect)="onItemSelect($event)" (onDeSelect)="onDeSelect($event)">
+            </ng-multiselect-dropdown>
+          </div>
+        </div>
+      </div> -->
     </form>
 
 
@@ -84,7 +91,16 @@
 
       </div>
     </form>
-
-
   </div>
+  <hr class="footerhorizon">
+  <div class="row">
+    <div class="offset-md-8"></div>
+    <div class="col-md-2 top">
+        <button class="btn btn-secondary skip"><i class="fa fa-fast-forward" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Skip</button>
+    </div>
+    <div class="col-md-2 top">
+           <button class="btn btn-primary continue"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Continue</button>
+       </div>
+    </div>
 </div>
+<div class="bottom"></div> 

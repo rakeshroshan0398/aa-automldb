@@ -1,0 +1,100 @@
+.card{
+    border-radius:10px;
+}
+header{
+    margin-left: 20px;
+    margin-top: 13px;
+    margin-bottom: -3px;
+    color:grey;
+}
+.experiment{
+    // margin-left:20px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top:30px;
+}
+.experimenttype{
+    margin-top:30px;
+    font-size: 15px;
+    font-weight: 600; 
+}
+.dataset{
+    margin-top:10px;
+    font-size: 15px;
+    font-weight: 600; 
+}
+.datatype{
+    margin-top:10px;
+    margin-left:0px;
+    font-size: 15px;
+    font-weight: 600; 
+}
+.experimenttext{
+    margin-left:20px;
+}
+.experimentselect{
+    margin-right:20px;
+}
+
+input,select{
+    border-radius: 8px;
+}
+.radio-inline{
+    margin-top: 26px;
+    margin-left: 81px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.radiofile{
+    margin-left: 112px;
+}
+.datasetfile{
+    width:90%;
+    margin-top:10px;
+    font-weight: 600; 
+}
+form{
+    margin-top: -16px;
+    background-color: #f7f7f7;
+}
+.bottomhorizon{
+    margin-top:500px;
+}
+.skip{
+    font-size:14px;
+    margin-left: 34px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.continue{
+    font-size:14px;
+    margin-left:-6px;
+    padding-top: 4px;
+    padding-bottom: 4px; 
+}
+.custom-file{
+    width: 95%;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+// .datasetfile{
+//     margin-top:10px;
+// }
+.custom-file-label{
+border-radius: 10px;
+}
+.bottom{
+   margin-bottom: 40px;
+   font-weight: 600;
+}
+.top{
+    margin-top:-8px;
+    margin-bottom: 8px;
+}
+.submit{
+    font-size:14px;
+    margin-left:-6px;
+    padding-top: 4px;
+    padding-bottom: 4px; 
+    margin-bottom: 10px;
+}
