@@ -53,9 +53,11 @@ export class ProjectRepositoryComponent implements OnInit {
   checkedarray = [];
   names: any;
   namearray = [];
+  name={};
   array = [];
   objectIndex: any;
   Experiment_Type:any;
+  selectedindex:any;
   constructor(public router: Router
   ) { }
   dataSource = this.repodata;
@@ -194,7 +196,7 @@ export class ProjectRepositoryComponent implements OnInit {
   search() {
     this.searchbox = true;
   }
-  editDetail( id: number, project_name: string, DatasetPath: string) {
+  editDetail(viewreceiptmodal, id: number, project_name: string, DatasetPath: string) {
     this.noneditable = false;
     this.copyForm = true;
     this.form = false;
@@ -211,9 +213,25 @@ export class ProjectRepositoryComponent implements OnInit {
   displayAllDetails(index: number): boolean {
     return index === this.id_no;
   }
-  copy() {
-    this.copyForm = true;
-    this.form = false;
+  copy(index) {
+    console.log(this.repodata[0].project_name );
+    for (let i = 0; i < this.repodata.length; i++) {
+      if(i === index){
+       let name = {
+        id: this.id,
+        project_name: this.repodata[i].project_name + '_copy',
+        DatasetPath: this.repodata[i].DatasetPath,
+        Experiment_Type: this.repodata[i].Experiment_Type,
+        label: "a",
+        selected: false,
+      }
+      this.repodata.splice(index + 1, 0, name);
+    }
+  }
+
+
+    // this.copyForm = true;
+    // this.form = false;
     // if(this.projectchecked == true){
     //   let name={
     //       id:this.id,
@@ -234,20 +252,20 @@ export class ProjectRepositoryComponent implements OnInit {
     //   else if(this.projectchecked == false){
     //   this.repodata.pop();
     // }
-    if (this.indexarray.length == 1) {
-      this.repodata.splice(this.index + 1, 0, this.names);
-      this.indexarray.pop();
-    }
-    if (this.indexarray.length > 1) {
-      for (let i = 0; i < this.indexarray.length; i++) {
-        console.log(this.indexarray);
-        this.repodata.splice(this.indexarray[i] + i + 1, 0, this.checkedarray[i]);
-      }
-      this.checkedarray = [];
-      this.indexarray = [];
-      console.log(this.checkedarray);
-      console.log(this.indexarray);
-    }
+    // if (this.indexarray.length == 1) {
+    //   this.repodata.splice(this.index + 1, 0, this.names);
+    //   this.indexarray.pop();
+    // }
+    // if (this.indexarray.length > 1) {
+    //   for (let i = 0; i < this.indexarray.length; i++) {
+    //     console.log(this.indexarray);
+    //     this.repodata.splice(this.indexarray[i] + i + 1, 0, this.checkedarray[i]);
+    //   }
+    //   this.checkedarray = [];
+    //   this.indexarray = [];
+    //   console.log(this.checkedarray);
+    //   console.log(this.indexarray);
+    // }
   }
   copyclose() {
     this.copyForm = false;
@@ -283,19 +301,24 @@ export class ProjectRepositoryComponent implements OnInit {
       return status;
     });
   }
-  delete() {
-    console.log(this.index);
-    if (this.indexarray.length == 1) {
-      this.repodata.splice(this.index, 1);
-      this.indexarray.pop();
-    } else if (this.indexarray.length > 1) {
-      for (let i = 0; i < this.indexarray.length; i++) {
-        console.log(this.indexarray[i]);
-        // console.log(this.array= this.checkedarray.splice(this.index,1));
-        this.repodata.splice(this.checkedarray[i], 1);
-        // delete this.repodata[this.indexarray[i]];
-      }
-      this.indexarray = [];
-    }
+  delete(index) {
+    // console.log(this.index);
+    // if (this.indexarray.length == 1) {
+    //   this.repodata.splice(this.index, 1);
+    //   this.indexarray.pop();
+    // } else if (this.indexarray.length > 1) {
+    //   for (let i = 0; i < this.indexarray.length; i++) {
+    //     console.log(this.indexarray[i]);
+    //     // console.log(this.array= this.checkedarray.splice(this.index,1));
+    //     this.repodata.splice(this.checkedarray[i], 1);
+    //     // delete this.repodata[this.indexarray[i]];
+    //   }
+    //   this.indexarray = [];
+    // }
+    this.repodata.splice(index, 1);
+
+  }
+  repository(index){
+  // this.selectedindex = index; 
   }
 }

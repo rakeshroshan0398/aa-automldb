@@ -4,3 +4,66 @@ div.container-fluid {
 app-deatils tabset ul li a{
    color:red;
 }
+.background{
+  background: #4646ad !important;
+  color: white;
+  font-weight: bolder;
+}
+.cardsize{
+}
+.projectrepo{
+  margin-top: 15px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.icons{
+  margin-left: 65px;
+}
+.repo{
+  margin-left: 10px;
+}
+.iconssize{
+  margin-top:22px;
+}
+
+h4 {
+  margin-top: 2px;
+  font-weight: bolder;
+}
+.login{
+  text-align: center;
+}
+ol{
+  background-color: #eff2f5;
+}
+.Experiment{
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 0px;
+}
+.breadcrumb{
+  margin-left:-14px;
+  margin-top: -8px;
+}
+.header{
+margin-top: 20px;
+}
+.horizontal{
+  margin-top: -28px;
+}
+ol{
+  display:block;
+}
+.active{
+margin-top: -24px;
+margin-left: 154px;
+}
+// .path{
+//   float:left;
+// }
+@media (max-width:767px) {
+  // h3 {
+  //   left : 0px;
+  // }
+ }
+

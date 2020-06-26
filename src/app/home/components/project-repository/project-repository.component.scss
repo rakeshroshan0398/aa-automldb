@@ -119,13 +119,18 @@ footer {
   font-weight: bold;
 }
 .label2{
-  margin-left:20px;
+  margin-left:0px;
   font-size:14px;
   font-weight: bold;
 }
-.project_name,.database_path{
+.project_name{
   margin-top: -14px;
   margin-left: 20px;
+  font-size: 14px;
+}
+.database_path{
+  margin-top: -14px;
+  margin-left: 0px;
   font-size: 14px;
 }
 .buttons{
@@ -133,18 +138,28 @@ footer {
   margin-top:30px;
   margin-bottom: 10px;
 }
-.fa-edit{
+.fa-edit, .fa-save{
   background: #6b6bbb !important;
   background: #6b6bbb !important;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-right: 9px;
   padding-left: 9px;
-  margin-left: 4px;
+  margin-left: -20px;
   border-radius: 7px;
   border: #6b6bbb;
 }
 input {
   border-color: 2px solid black;
   background: transparent;
+}
+::placeholder {
+  color: grey;
+}
+hr{
+  margin-right:-16px;
+}
+.experimentbox{
+  margin-top: 10px;
+  width: 95%;
 }

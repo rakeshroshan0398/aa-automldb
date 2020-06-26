@@ -9,8 +9,8 @@
               </select> -->
                 <label for="project_name" class="experimenttype">Select Features</label>
                 <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="dropdownList"
-                    (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
-                    (onDeSelect)="onDeSelect($event)" (onDeSelectAll)="onDeSelectAll($event)" class="dropdown">
+                    (onSelect)="onItemSelect($event)" 
+                    (onDeSelect)="onDeSelect($event)" class="dropdown">
                 </ng-multiselect-dropdown>
             </div>
             <br>

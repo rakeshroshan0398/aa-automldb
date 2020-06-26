@@ -1,9 +1,20 @@
-<app-header [myinputMsg]="projectname"></app-header>
+<!-- <app-header [myinputMsg]="projectname"></app-header> -->
+<!-- <breadcrumb #parent>  
+    <ol class="breadcrumb">
+      <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+        <li class="breadcrumb-item">
+          <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">{{ route.displayName }}</li>
+      </ng-template>
+    </ol>
+  </breadcrumb>  -->
 <div class="container">
     <div class="sidebar">
         <div class="row">
             <div class="col-md-4">
-                <button class="plusbutton" style="font-size:14px" routerLink ="/add-experiment" (click)="addproject()"><i class="fa fa-plus-circle plusbutton" style="font-size:15px" ></i>Add New Experiment</button>
+                <button class="plusbutton" style="font-size:14px" routerLink="/add-experiment" (click)="addproject()"><i
+                        class="fa fa-plus-circle plusbutton" style="font-size:15px"></i>Add New Experiment</button>
                 <!-- <div class="input-group icon">
                     <input class="form-control py-2 border-right-0 border" type="search" value="search"
                         [(ngModel)]="searchText" (keyup)="searchValue($event)" placeholder="Search">
@@ -16,16 +27,16 @@
             </div>
             <div class="col-md-3 offset-md-5">
                 <div class="row">
-                <div class="input-group col-md-12">
-                    <input class="form-control py-2 border-right-0 border search" type="search" value="Search |"
-                        [(ngModel)]="searchText" (keyup)="searchValue($event)" placeholder="Search">
-                    <!-- <span class="input-group-append">
+                    <div class="input-group col-md-12">
+                        <input class="form-control search" type="search" value="Search |" style="border:2px solid grey;margin-left: 20px;margin-right:-16px;"
+                            [(ngModel)]="searchText" (keyup)="searchValue($event)" placeholder="Search">
+                        <!-- <span class="input-group-append">
                         <button class="btn btn-outline-secondary border-left-0 border" type="button">
                             <i class="fa fa-search"></i>
                         </button>
                     </span> -->
-                </div>
-                <!-- <div class="col-md-2 copy">
+                    </div>
+                    <!-- <div class="col-md-2 copy">
                 <button class="fa fa-clone" style="font-size:18px"
                      [disabled]="(project_name.length <= 0) ? 'disabled': null" (click)="copy()">&nbsp;Clone</button>
                 </div>
@@ -34,9 +45,9 @@
                  [disabled]="(project_name.length <= 0) ? 'disabled': null" (click)="delete()">Delete</button>
                  </div> -->
                 </div>
-                 </div>
+            </div>
         </div>
-            <!-- <table class="table table-bordered table-striped cus-table aa-table table1 col-md-10 offset-md-1">
+        <!-- <table class="table table-bordered table-striped cus-table aa-table table1 col-md-10 offset-md-1">
                 <thead class="thead-inverse">
                     <tr>
                         <th><input type="checkbox" id="vehicle2" name="checkbox" value="Car"
@@ -70,35 +81,44 @@
                     </tr>
                 </tbody>
             </table> -->
-            <div class="row">
-                <div class="col-md-3" *ngFor="let item of repositorydata; let i = index">
-                    <div class="card">
-                        <!-- <input type="checkbox" id="vehicle2" name="checkbox" [checked]="item.selected" value="Car"
+        <div class="row">
+            <div class="col-md-3" *ngFor="let item of repositorydata; let i = index">
+                <div class="card" (click)="repository(i)">
+                    <!-- <input type="checkbox" id="vehicle2" name="checkbox" [checked]="item.selected" value="Car"
                                 (change)="toggle(item,$event)"
                                 > -->
-                        <label class="label">Experiment Name:</label>
-                        <p class="project_name" routerLink="/Deatils">{{item.project_name}}</p>
-                        <label class="label2">Dataset:</label>
-                        <p class="database_path">{{item.DatasetPath}}</p>
-                        <label class="label2">Experiment Type:</label>
-                        <p class="database_path">{{item.Experiment_Type}}</p>
-                        <label class="label2">Status:</label>
-                        <div class="row buttons">
-                            <button class="fa fa-edit accordion-toggle collapsed" id="accordion1" data-toggle="collapse"
-                            data-parent="#accordion1" href="#collapseone" style="font-size:14px" (click)="editDetail(i,item.project_name,item.DatasetPath)" *ngIf="!displayAllDetails(i)"></button>
-                            <button class="fa fa-clone" style="font-size:14px"
-                          [disabled]="(project_name.length <= 0) ? 'disabled': null" (click)="copy()"></button>
-                     <button class="fa fa-trash" aria-hidden="true" style="font-size:14px"
-                       [disabled]="(project_name.length <= 0) ? 'disabled': null" (click)="delete()"></button>
-                        </div>
+                    <label class="label">Experiment Name:</label>
+                    <div class="project_name" #viewreceiptmodal> <div *ngIf="!displayAllDetails(i)" routerLink="/Deatils">{{item.project_name}}</div>
+                    <div class="form-group"  *ngIf="displayAllDetails(i) && copyForm">
+                        <input type="text" class="form-control experimentbox" name="projectName"
+                            [(ngModel)]="projectName" required
+                            projectName />
+                    </div>
+                    <label class="label2" style="margin-top:15px">Dataset:</label>
+                    <p class="database_path">{{item.DatasetPath}}</p>
+                    <label class="label2">Experiment Type:</label>
+                    <p class="database_path">{{item.Experiment_Type}}</p>
+                    <label class="label2">Status:</label>
+                    <div class="row buttons">
+                        <button class="fa fa-edit accordion-toggle collapsed" id="accordion1" data-toggle="collapse"
+                            data-parent="#accordion1" href="#collapseone" style="font-size:14px"
+                            (click)="editDetail(viewreceiptmodal,i,item.project_name,item.DatasetPath)"
+                            *ngIf="!displayAllDetails(i)"></button>
+                            <!-- <i *ngIf="displayAllDetails(i)" class="fa fa-times aa-close" (click)="clearDisplayIndex()" title="Close all details"></i>&nbsp; -->
+                            <button class="btn btn-primary fa fa-save" *ngIf="displayAllDetails(i)" (click)="update(i)"></button>
+                        <button class="fa fa-clone" style="font-size:14px" (click)="copy(i)"></button>
+                        <button class="fa fa-trash" aria-hidden="true" style="font-size:14px"
+                            (click)="delete(i)"></button>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
     <div>
         <!-- <app-header></app-header> -->
     </div>
 </div>
 <footer>
-    Copyright © 2020 Affine Analytics Pvt Ltd | <a href="https://www.affineanalytics.com/" target="_blank">www.affineanalytics.com</a>
+    Copyright © 2020 Affine Analytics Pvt Ltd | <a href="https://www.affineanalytics.com/"
+        target="_blank">www.affineanalytics.com</a>
 </footer>

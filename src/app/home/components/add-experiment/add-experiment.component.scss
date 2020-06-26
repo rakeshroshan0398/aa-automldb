@@ -19,9 +19,10 @@ header{
     font-weight: 600; 
 }
 .dataset{
-    margin-top:10px;
+    position: absolute;
+    margin-top: -27px;
     font-size: 15px;
-    font-weight: 600; 
+    font-weight: 600;
 }
 .datatype{
     margin-top:10px;
@@ -40,8 +41,8 @@ input,select{
     border-radius: 8px;
 }
 .radio-inline{
-    margin-top: 26px;
-    margin-left: 81px;
+    margin-top: 3px;
+    margin-left: 20px;
     margin-bottom: 20px;
     font-weight: 600;
 }
@@ -49,8 +50,9 @@ input,select{
     margin-left: 112px;
 }
 .datasetfile{
-    width:90%;
-    margin-top:10px;
+    width: 90%;
+    position: absolute;
+    margin-top: -31px;
     font-weight: 600; 
 }
 form{
@@ -97,4 +99,7 @@ border-radius: 10px;
     padding-top: 4px;
     padding-bottom: 4px; 
     margin-bottom: 10px;
+}
+.datatype{
+    margin-left: 20px
 }

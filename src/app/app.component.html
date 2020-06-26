@@ -1,1 +1,35 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light background">
+    <a href="#" class="navbar-brand">
+        <img src="assets/images/affine-logo.svg" class="mb-2" height="40"  width="140" alt="affine">
+    </a>
+  <div>
+  <h4 class="login">AutoML</h4>
+  </div>
+  
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ml-auto">
+        </div>
+    </div>
+  </nav>
+  
+  <!-- Project Repositry -->
+    <section class="container header">
+          <breadcrumb #parent>  
+            <ol class="breadcrumb">
+              <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+                 <div class="Experiment">{{ route.displayName }}</div>
+                 <div class="path">
+                <li>
+                  <a routerLink="/project-repository">Experiment Repository</a>
+                </li>
+                <li *ngIf="route.terminal" class="active" aria-current="page">&nbsp; > {{ route.displayName }}</li>
+                <!-- <li aria-current="page"> &nbsp;>
+                    <a [routerLink]="[route.url]">{{ route.displayName }}</a>
+                    </li> -->
+                    </div>
+              </ng-template>
+            </ol>
+          </breadcrumb> 
+          <hr class="horizontal">          
+  </section>
 <router-outlet></router-outlet>

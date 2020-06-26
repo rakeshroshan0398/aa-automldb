@@ -5,6 +5,7 @@ import { ProjectRepositoryRoutingModule } from './project-repository-routing.mod
 import { ProjectRepositoryComponent } from './project-repository.component';
 import { HeaderComponent } from '../header/header.component'
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import {BreadcrumbModule} from 'angular-crumbs';
 
 @NgModule({
   declarations: [ProjectRepositoryComponent,
@@ -13,7 +14,8 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
   imports: [
     CommonModule,
     ProjectRepositoryRoutingModule,
-    FormsModule
+    FormsModule,
+    BreadcrumbModule
   ],
   exports: [
     HeaderComponent
