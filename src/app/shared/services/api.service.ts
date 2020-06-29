@@ -7,13 +7,25 @@ import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class ApiService {
-
+  projectdata =[
+    {"name":"Type","ID":"numeric","age":"string","education":"string"},
+    {"name":"Type","ID":"numeric","age":"string","education":"string"},
+    {"name":"Type","ID":"numeric","age":"string","education":"string"},
+    {"name":"Type","ID":"numeric","age":"string","education":"string"},
+    {"name":"Type","ID":"numeric","age":"string","education":"string"},
+    {"name":"Type","ID":"numeric","age":"string","education":"string"},
+    {"name":"Type","ID":"numeric","age":"string","education":"string"},
+    {"name":"Type","ID":"numeric","age":"string","education":"string"},
+  ]  
   baseURL: string = '';
   // baseURL: string = 'http://127.0.0.1:5000';
   // baseURL: string = 'http://3.80.213.87:5000';
 
   private httpOptions: any = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json',
+    'Authorization':'Bearer dapi441d0166d4aa19432697b44bd848d00b', 
+    'Access-Control-Allow-Origin': '*' 
+  }), 
   };
 
   constructor(
@@ -193,5 +205,19 @@ getShelfInventoryData(){
       xhr.send(formData);
     });
   }
-
+Submit(){
+  // var url = 'https://adb-6905688409884757.17.azuredatabricks.net/api/2.0/jobs/runs/get-output?run_id=139';
+  // return this.httpClient.get(
+  //   url,
+  //   this.httpOptions
+  // )
+  // .toPromise()
+  // .then(response => {
+  //   return response;
+  // })
+  // .catch(err => {
+  //   console.log(err);
+  // });
+    return this.projectdata;
+}
 }

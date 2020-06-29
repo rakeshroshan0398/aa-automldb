@@ -1,17 +1,18 @@
-<ul class="nav nav-tabs">
-  <li class="nav-item ">
-    <a class="nav-link active" (click)="dataset()">Data Summary</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" (click)="Pandas()">Profilling</a>
-  </li>
-</ul>
+
 <div>
-<div class="sidebar" *ngIf="dataData">
+<div class="sidebar">
   <div class="card data">
-    <h4 class="heading">Data-Set</h4>
-    <hr>
-    <table class="table table-bordered table-striped cus-table aa-table table1">
+    <!-- <ul class="nav nav-tabs"> -->
+      <li class="nav-item ">
+        <a class="nav-link actives datasummary" (click)="dataset()">Data Summary</a>
+      </li><span class="symbol">|</span>
+      <li class="nav-item" class="profiling">
+        <a class="nav-link" (click)="Pandas()">Profilling</a>
+      </li>
+    <!-- </ul>    -->
+     <hr class="top">
+     <div *ngIf="dataData">
+    <table class="table table-bordered table-striped cus-table aa-table table1" width="95%">
       <thead class="thead-inverse">
         <tr>
           <th>Name</th>
@@ -31,11 +32,23 @@
     </table>
   </div>
   <!-- </div> -->
-</div>
 
-<div class="card data" *ngIf="profileData">
+<div class="data" *ngIf="profileData">
   <iframe src="../../../../assets/profile_report (1).html"></iframe>
   </div>
+  <hr class="footerhorizon">
+    <div class="row">
+        <div class="offset-md-8"></div>
+        <div class="col-md-2 top">
+            <button class="btn btn-secondary skip"><i class="fa fa-fast-forward" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Skip</button>
+        </div>
+        <div class="col-md-2 top">
+               <button class="btn btn-primary continue"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Continue</button>
+           </div>
+        </div>
+        <div class="bottom"></div> 
+</div>
+</div>
 </div>
 <!-- <tabset #tabset class="tabset">
   <tab heading="Dataset-Summary">

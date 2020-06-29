@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {ApiService} from '../../../shared/services/api.service';
 @Component({
   selector: 'app-add-experiment',
   templateUrl: './add-experiment.component.html',
@@ -11,7 +11,7 @@ export class AddExperimentComponent implements OnInit {
   datapath: boolean = false;
   datavalue: any;
 
-  constructor() { }
+  constructor(private apiservice:ApiService) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +21,7 @@ export class AddExperimentComponent implements OnInit {
       //  "id": this.id,
        "project_name":model.project_name,
        "DatasetPath":model.Dataset_Path,
+       "Datasettypes":model.data,
        "Experiment_Type":model.Experiment_Type,
        "label": 'a', 
        "selected": false
@@ -35,12 +36,20 @@ export class AddExperimentComponent implements OnInit {
    changeData(data) {
     console.log(data.target.value);
     this.datavalue = data.target.value;
-    if (this.datavalue == "dataset") {
+    if (this.datavalue == "Path") {
       this.datasetform = true;
       this.datapath = false;
-    } else if (this.datavalue == "datafile") {
+    } else if (this.datavalue == "File") {
       this.datasetform = false;
       this.datapath = true;
     }
+  }
+  submit(){
+    this.apiservice.Submit();
+    console.log(this.apiservice.Submit()
+    )
+    // // .subscribe((response)=>{
+    // //   console.log(response);
+    // })
   }
 }

@@ -20,9 +20,9 @@
                  <div class="Experiment">{{ route.displayName }}</div>
                  <div class="path">
                 <li>
-                  <a routerLink="/project-repository">Experiment Repository</a>
+                  <a routerLink="/project-repository" *ngIf="route.url != '/project-repository'">Experiment Repository</a>
                 </li>
-                <li *ngIf="route.terminal" class="active" aria-current="page">&nbsp; > {{ route.displayName }}</li>
+                <li *ngIf="route.url != '/project-repository'" class="active" aria-current="page">&nbsp; > {{ route.displayName }}</li>
                 <!-- <li aria-current="page"> &nbsp;>
                     <a [routerLink]="[route.url]">{{ route.displayName }}</a>
                     </li> -->

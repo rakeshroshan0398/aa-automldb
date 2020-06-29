@@ -97,8 +97,18 @@
                     <label class="label2" style="margin-top:15px">Dataset:</label>
                     <p class="database_path">{{item.DatasetPath}}</p>
                     <label class="label2">Experiment Type:</label>
-                    <p class="database_path">{{item.Experiment_Type}}</p>
-                    <label class="label2">Status:</label>
+                    <div class="database_path" #viewreceiptmodal> <div *ngIf="!displayAllDetails(i)">{{item.Experiment_Type}}</div>
+                        <div *ngIf="displayAllDetails(i)">
+                        <select class="form-control selecttag" name="Experiment_Type"
+                            (change)="selectstore($event.target.value)" [(ngModel)]="model.Experiment_Type" #Experiment_Type = "ngModel"
+                             required>
+                            <option>Select Action</option>
+                            <option>Regression</option>
+                            <option>Classification</option>
+                        </select>
+                    </div>
+                    </div>
+                    <label class="label2" style="margin-top:15px;">Status:</label>
                     <div class="row buttons">
                         <button class="fa fa-edit accordion-toggle collapsed" id="accordion1" data-toggle="collapse"
                             data-parent="#accordion1" href="#collapseone" style="font-size:14px"

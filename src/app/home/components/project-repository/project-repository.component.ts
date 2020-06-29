@@ -279,6 +279,7 @@ export class ProjectRepositoryComponent implements OnInit {
       console.log('update1')
       if (value.id == this.id_no) {
         value.project_name = this.projectName;
+        value.Experiment_Type = this.model.Experiment_Type;
         console.log('update2')
       }
       return true;

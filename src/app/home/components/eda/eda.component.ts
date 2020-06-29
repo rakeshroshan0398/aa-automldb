@@ -24,7 +24,7 @@ subtitle: {
     text: ''
 },
 xAxis: {
-    categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+    categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania','ZRT'],
     title: {
         text: null
     }
@@ -64,7 +64,7 @@ credits: {
 },
 series: [{
     name: 'Year 1800',
-    data: [107, 31, 635, 203, 2]
+    data: [107, 31, 635, 203, 2, 900]
 }]
 };
 

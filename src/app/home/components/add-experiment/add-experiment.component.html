@@ -30,11 +30,11 @@
             <div class="row">
             <div class="col-md-6">
             <label class="radio-inline">
-                <input type="radio" id="dataset" name="data" value="dataset" (change)="changeData($event)">&nbsp;Path
+                <input type="radio" id="dataset" name="data" value="Path" (change)="changeData($event)" [(ngModel)]="model.datasettypes" #datasettypes = "ngModel">&nbsp;Path
             </label>
             <!-- <label for="dataset">&nbsp;Path</label><br> -->
             <label class="radio-inline radiofile">
-                <input type="radio" id="datafile" name="data" value="datafile" (change)="changeData($event)">&nbsp;File
+                <input type="radio" id="datafile" name="data" value="File" (change)="changeData($event)" [(ngModel)]="model.datasettypes" #datasettypes = "ngModel">&nbsp;File
             </label>
             </div>
             <!-- <label for="datafile">&nbsp;File</label><br> -->
@@ -79,4 +79,6 @@
                </div>
             </div>
 </div>
+<button class="btn btn-primary submit" (click)="submit()">Submit</button>
+
 <div class="bottom"></div> 

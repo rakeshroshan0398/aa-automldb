@@ -11,10 +11,11 @@
   margin-left: 10px;
   margin-top: 287px;
 }
-.data,
 iframe {
   min-height: 570px;
   width: 100%;
+  margin-left:20px;
+  width:95%;
 }
 .ngxtab {
   cursor: pointer;
@@ -39,8 +40,57 @@ li{
 }
 li{
    border-radius: 20px;
+   text-decoration: none;
+  list-style: none;
 }
-
+.card{
+  border-radius:10px;
+}
+.table{
+  margin-left:20px;
+  width:95%;
+  margin-right: 10px;
+}
+.profiling{
+  margin-top: -31px;
+  margin-left: 132px;
+}
+.symbol{
+    margin-top: -32px;
+    margin-left: 130px;
+}
+.top{
+margin-top: 7px;
+}
+.datasummary{
+margin-top: 7px;
+}
+.footerhorizon{
+  margin-top:200px;
+}
+.skip{
+  font-size:14px;
+  margin-left: 34px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-bottom: 9px;
+  margin-top: -5px;
+}
+.continue{
+  font-size:14px;
+  margin-left:-6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-bottom: 9px;
+  margin-top: -5px;
+}
+.bottom{
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+// .actives{
+//   color:red;
+// }
 
 
 
